@@ -1,0 +1,124 @@
+# lf config
+
+set drawbox
+set shellopts '-eu'
+set icons
+set scrolloff 10
+set hiddenfiles ".*:*.aux:*.bbl:*.bcf:*.blg:*.run.xml:*.fold:*.cpg:*.dbf:*.prj:*.shx:*.qmd"
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
+
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$f";;
+		application/vnd.ms-powerpoint) setsid -f loimpress "$f" &> /dev/null ;;
+		application/*presentation*) setsid -f loimpress "$f" &> /dev/null ;;
+		application/vnd.openxmlformats-officedocument.wordprocessingml.document) setsid -f lowriter "$f" &> /dev/null ;;
+		application/msword) setsid -f lowriter "$f" &> /dev/null ;;
+		application/vnd.oasis.opendocument.text) setsid -f lowriter "$f" &> /dev/null ;;
+		application/*spreadsheet*) setsid -f localc "$f" ;;
+		application/*excel*) setsid -f localc "$f" ;;
+		application/pdf) setsid -f zathura "$f" &> /dev/null ;;
+		audio/*) mpv --audio-display=no "$f" ;;
+		video/*) setsid -f mpv "$f" -quiet &> /dev/null ;;
+		image/*) setsid -f feh -B "white" -- "$f" ;;
+        *) xdg-open "$f" ;;
+
+    esac
+}}
+
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
+cmd touch $touch "$(echo $* | tr ' ' '\ ')"
+
+cmd extract ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "extract?[y/N]"
+	read ans
+	OIFS=$IFS
+	IFS=$'\n'
+	[ $ans = "y" ] && for x in $fx;do eval aunpack -- \"$x\"; done
+	IFS=$OIFS
+}}
+
+cmd delete ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/N]"
+	read ans
+	OIFS=$IFS
+	IFS=$'\n'
+	[ $ans = "y" ] && for x in $fx; do eval rm -rf -- \"$x\"; done
+	IFS=$OIFS
+}}
+
+cmd moveto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Move to where?"
+	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' ${XDG_CONFIG_HOME:-$HOME/.config}/bookmarks | fzf | sed 's|~|$HOME|')" &&
+	for x in $fx; do
+		eval mv -iv \"$x\" \"$dest\"
+	done &&
+	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+}}
+
+cmd copyto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Copy to where?"
+	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' ${XDG_CONFIG_HOME:-$HOME/.config}/bookmarks | fzf | sed 's|~|$HOME|')" && for x in "$fx"; do
+		eval cp -ivr \"$x\" \"$dest\"
+	done &&
+	notify-send "📋 File(s) copied." "File(s) copies to $dest."
+}}
+
+cmd setbg "$1"
+cmd bulkrename $vidir
+
+## RENAME
+
+# cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
+# map <f-2> push :rename<space>
+map A rename # at the very end
+# map c push A<c-u> # new rename
+map c clear
+map I push A<c-a> # at the very beginning
+map i push A<a-b><a-b><a-f> # before extention
+map a push A<a-b><a-b><a-d> # before extention
+map B bulkrename
+
+map . set hidden!
+
+map E extract
+map C copyto
+map M moveto
+
+map D delete
+
+map <c-n> push :mkdir<space>
+map <c-t> push :touch<space>
+map <c-r> reload
+
+map o &mimeopen $f
+map O $mimeopen --ask $f
+
+# Movements
+map gd cd ~/Downloads
+map gi cd ~/.config
+map gm cd ~/SSD/College/M.Sc
+map gM cd ~/data/Music
+map gs cd ~/.local/bin
+map gp cd ~/SSD/College/PhD
+map gt cd ~/SSD/College/PhD/thesis
+map gl cd ~/SSD/PoleDigital/projects
+map gP cd ~/external
+map gr cd ~/github
+map gR cd ~/SSD/College/PhD/ref
+map g/ cd /
+map g? cd /usr/share/doc/ranger
+map gk cd ~/external/piano
+map gC cd ~/SSD/coding/Python/PythonProgramming/pytorch

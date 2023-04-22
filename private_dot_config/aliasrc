@@ -1,0 +1,53 @@
+#!/usr/bin/env sh
+
+alias vim="nvim" \
+    elinks="elinks -config-dir $HOME/.config/elinks" \
+    abook="abook -C $HOME/.config/abook/abookrc --datafile=$HOME/.config/abook/addressbook" \
+    lf="lfub" \
+    ran="ranger" \
+    py="python3" \
+    mixer="ncpamixer" \
+    mutt="neomutt" \
+    ls="ls -hN --color=auto --group-directories-first" \
+    ll="ls -lhN --color=auto --group-directories-first" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    yt="youtube-dl --add-metadata -i -o '%(title)s.%(ext)s'" \
+    yta="yt -x -f bestaudio/best --audio-format opus --audio-quality 0" \
+    YT="ytfzf -t" \
+    upc="sudo pacman -Syu" \
+    SS="sudo systemctl" \
+    PS="sudo pacman -S" \
+    PQ="sudo pacman -Q" \
+    PR="sudo pacman -Rnu" \
+    cpu="ps axch -o cmd:15,%cpu --sort=-%cpu | head" \
+    mem="ps axch -o cmd:15,%mem --sort=-%mem | head" \
+    gs="cd $HOME/.local/bin" \
+    gi="cd $HOME/.config" \
+    gR="cd $HOME/SSD/College/PhD/ref" \
+    gp="cd $HOME/SSD/College/PhD/" \
+    gP="cd $HOME/external" \
+    gm="cd $HOME/SSD/College/M.Sc" \
+    gh="cd $HOME/" \
+    gt="cd $HOME/github/PhDThesis" \
+    gd="cd $HOME/Downloads" \
+    gl="cd $HOME/SSD/PoleDigital/" \
+    efa="nvim $HOME/.config/aliasrc" \
+    efz="nvim $HOME/.zshrc" \
+    efb="nvim $HOME/.config/bookmarks" \
+    TR="tremc" \
+    tf="source $HOME/.venv/py10/bin/activate" \
+    list="nmcli device wifi list" \
+    con="nmcli device wifi connect -ask" \
+    P="aplaymidi -p 24" \
+    R="arecordmidi -p 24" \
+    ot="opustags -ei " \
+
+    command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
+
+cw() { feh --bg-fill --randomize -r $HOME/Pictures/Wallpapers ;}
+ss() { du -a ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+vf() { fzf | xargs -r -I % $EDITOR % ;}
+gr() { cd $(du --max-depth=1 $HOME/github | awk '{print $2}' | fzf) ;}
+sc() { cd $(du --max-depth=1 $HOME/.config | awk '{print $2}' | fzf) ;}
+efn() { cd $HOME/.config/nvim && nvim  ;}
