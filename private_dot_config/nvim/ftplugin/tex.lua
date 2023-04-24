@@ -1,10 +1,10 @@
--- function Compile()
---     vim.cmd('write')
---     vim.cmd('silent !mkdir out')
---     vim.cmd('!latexmk -outdir=out/ --output-format=pdf -file-line-error -interaction=nonstopmode -synctex=1 %:p')
--- end
-
 function Compile()
+    vim.cmd('write')
+    vim.cmd('silent !mkdir out')
+    vim.cmd('!latexmk -outdir=out/ --output-format=pdf -file-line-error -interaction=nonstopmode -synctex=1 %:p')
+end
+
+function Xelatex()
     vim.cmd('write')
     vim.cmd('cd %:p:h')
     vim.cmd('silent !mkdir out')

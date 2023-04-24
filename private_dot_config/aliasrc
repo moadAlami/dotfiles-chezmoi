@@ -33,6 +33,7 @@ alias vim="nvim" \
     gd="cd $HOME/Downloads" \
     gl="cd $HOME/SSD/PoleDigital/" \
     efa="nvim $HOME/.config/aliasrc" \
+    eft="nvim $HOME/.config/tmux/tmux.conf" \
     efz="nvim $HOME/.zshrc" \
     efb="nvim $HOME/.config/bookmarks" \
     TR="tremc" \
@@ -40,7 +41,7 @@ alias vim="nvim" \
     list="nmcli device wifi list" \
     con="nmcli device wifi connect -ask" \
     P="aplaymidi -p 24" \
-    R="arecordmidi -p 24" \
+    REC="arecordmidi -p 24" \
     ot="opustags -ei " \
 
     command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
@@ -48,6 +49,6 @@ alias vim="nvim" \
 cw() { feh --bg-fill --randomize -r $HOME/Pictures/Wallpapers ;}
 ss() { du -a ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
-gr() { cd $(du --max-depth=1 $HOME/github | awk '{print $2}' | fzf) ;}
-sc() { cd $(du --max-depth=1 $HOME/.config | awk '{print $2}' | fzf) ;}
+gr() { cd $(ls -d $HOME/github/*/ | fzf) ;}
+sc() { cd $(ls -d /home/mouad/.config/*/ | fzf) ;}
 efn() { cd $HOME/.config/nvim && nvim  ;}
