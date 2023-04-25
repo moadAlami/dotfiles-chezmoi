@@ -9,8 +9,8 @@ end
 vim.keymap.set('n', '<leader>a', AddFile)
 vim.keymap.set('n', '<leader>m', ui.toggle_quick_menu)
 
-vim.keymap.set('n', '<a-a>', function() ui.nav_file(1) end)
-vim.keymap.set('n', '<a-z>', function() ui.nav_file(2) end)
+vim.keymap.set('n', '<a-q>', function() ui.nav_file(1) end)
+vim.keymap.set('n', '<a-w>', function() ui.nav_file(2) end)
 vim.keymap.set('n', '<a-e>', function() ui.nav_file(3) end)
 vim.keymap.set('n', "<a-r>", function() ui.nav_file(4) end)
 

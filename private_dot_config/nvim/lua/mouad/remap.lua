@@ -1,13 +1,13 @@
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "<space>n", "<cmd>next<CR>zz")
-vim.keymap.set("n", "<space>p", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<space>j", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<space>k", "<cmd>lprev<CR>zz")
+-- vim.keymap.set("n", "<space>n", "<cmd>next<CR>zz")
+-- vim.keymap.set("n", "<space>p", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<space>j", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<space>k", "<cmd>lprev<CR>zz")
 
 vim.keymap.set('x', '<c-c>', '"+y')
 vim.keymap.set('n', 'cp', '"+p')
