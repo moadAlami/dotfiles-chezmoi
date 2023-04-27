@@ -46,7 +46,11 @@ use {
 
 use('tommcdo/vim-lion')
 use('vimwiki/vimwiki')
-use("potamides/pantran.nvim")
+use("potamides/pantran.nvim") -- translation
+use {'nvim-orgmode/orgmode', config = function()
+  require('orgmode').setup{}
+end
+}
 
 -- colorschemes
 use { "catppuccin/nvim", as = "catppuccin" }
