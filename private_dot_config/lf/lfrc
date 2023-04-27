@@ -114,7 +114,7 @@ map gM cd ~/data/Music
 map gs cd ~/.local/bin
 map gp cd ~/SSD/College/PhD
 map gt cd ~/SSD/College/PhD/thesis
-map gl cd ~/SSD/PoleDigital/projects
+map gl cd ~/SSD/PoleDigital/
 map gP cd ~/external
 map gr cd ~/github
 map gR cd ~/SSD/College/PhD/ref
