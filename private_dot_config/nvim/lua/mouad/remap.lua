@@ -15,7 +15,7 @@ vim.keymap.set('n', 'cp', '"+p')
 vim.keymap.set('n', 'S', 'i<CR><Esc>')
 
 vim.keymap.set('n', '<F6>', ':setlocal spell! spelllang=fr<CR>')
-vim.keymap.set('n', '<F8>', ':setlocal spell! spelllang=en_gb<CR>')
+vim.keymap.set('n', '<F8>', ':setlocal spell! spelllang=en<CR>')
 
 -- correct misspelling
 vim.keymap.set('i',  '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')

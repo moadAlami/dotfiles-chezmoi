@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
     }
 }
 
+use('tpope/vim-surround')
 use('anufrievroman/vim-angry-reviewer')
 use('tpope/vim-commentary')
 use {

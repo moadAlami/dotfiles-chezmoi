@@ -191,6 +191,11 @@ _G.packer_plugins = {
     path = "/home/mouad/.local/share/nvim/site/pack/packer/start/vim-lion",
     url = "https://github.com/tommcdo/vim-lion"
   },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/mouad/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
   vimwiki = {
     loaded = true,
     path = "/home/mouad/.local/share/nvim/site/pack/packer/start/vimwiki",

@@ -31,6 +31,6 @@ vim.opt.incsearch = true
 
 vim.opt.updatetime = 50
 
-vim.g.AngryReviewerEnglish = 'british'
+vim.g.AngryReviewerEnglish = 'american'
 
 vim.g.netrw_browsex_viewer = "librewolf"

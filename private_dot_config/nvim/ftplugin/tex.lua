@@ -1,7 +1,14 @@
+function FullCompile()
+    vim.cmd('write')
+    vim.cmd('silent !mkdir out')
+    vim.cmd('!latexmk -outdir=out/ --output-format=pdf -file-line-error -interaction=errorstopmode -synctex=1 %:p')
+end
+
+
 function Compile()
     vim.cmd('write')
     vim.cmd('silent !mkdir out')
-    vim.cmd('!latexmk -outdir=out/ --output-format=pdf -file-line-error -interaction=nonstopmode -synctex=1 %:p')
+    vim.cmd('!pdflatex -outdir=out/ --output-format=pdf -file-line-error -interaction=errorstopmode -synctex=1 %:p')
 end
 
 function Xelatex()
@@ -22,5 +29,6 @@ end
 vim.keymap.set('n', '<leader>ar', ':AngryReviewer<CR>')
 vim.keymap.set('n', '<leader>s', ':source /home/mouad/.config/nvim/ftplugin/tex.lua<CR>')
 
-vim.api.nvim_buf_set_keymap(0, 'n', '<leader>c', ':lua Compile()<LF>', { silent = true })
+vim.api.nvim_buf_set_keymap(0, 'n', '<leader>c', ':lua FullCompile()<LF>', { silent = true })
+vim.api.nvim_buf_set_keymap(0, 'n', '<leader>lc', ':lua Xelatex()<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>o', ':lua OpenPdf()<LF>', { silent = true })
