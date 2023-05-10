@@ -4,7 +4,6 @@ function FullCompile()
     vim.cmd('!latexmk -outdir=out/ --output-format=pdf -file-line-error -interaction=errorstopmode -synctex=1 %:p')
 end
 
-
 function Compile()
     vim.cmd('write')
     vim.cmd('silent !mkdir out')
@@ -14,7 +13,6 @@ end
 function Xelatex()
     vim.cmd('write')
     vim.cmd('cd %:p:h')
-    vim.cmd('silent !mkdir out')
     vim.cmd('!xelatex %:p')
     vim.cmd('cd -')
 end
