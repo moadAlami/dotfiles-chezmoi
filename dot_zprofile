@@ -91,10 +91,10 @@ ex=🎯:\
 *.ods=📗:\
 *.odp=📙:\
 *.py=🐍:\
-*.ipynb=📔\
-*.pickle=🥒\
-*.gpkg=🗺\
-*.parquet=🗃\
+*.ipynb=📔:\
+*.pickle=🥒:\
+*.gpkg=🗺:\
+*.parquet=🗃:\
 "
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
