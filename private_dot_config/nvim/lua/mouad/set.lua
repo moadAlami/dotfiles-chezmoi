@@ -31,6 +31,8 @@ vim.opt.incsearch = true
 
 vim.opt.updatetime = 50
 
+vim.opt.mouse = nil
+
 vim.g.AngryReviewerEnglish = 'american'
 
-vim.g.netrw_browsex_viewer = "librewolf"
+vim.g.netrw_browsex_viewer = "firefox"
