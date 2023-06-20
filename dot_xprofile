@@ -3,7 +3,7 @@
 export _JAVA_AWT_WM_NONREPARENTING=1
 # mpd & # Music Player Daemon
 feh --bg-fill --no-fehbg "$HOME/Pictures/Wallpapers/1623955210978-2.png"
-setxkbmap -option caps:escape && setxkbmap -layout en_US & # Set keyboard layout
+setxkbmap -option caps:escape && setxkbmap -layout us & # Set keyboard layout
 dunst & # Notification 
 picom & # Transparency
 # transmission-daemon & # Torrent daemon
