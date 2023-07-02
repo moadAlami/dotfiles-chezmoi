@@ -113,7 +113,7 @@ map gm cd ~/SSD/College/M.Sc
 map gM cd ~/data/Music
 map gs cd ~/.local/bin
 map gp cd ~/SSD/College/PhD
-map gt cd ~/SSD/College/PhD/thesis
+map gt cd ~/external/torrents/
 map gl cd ~/SSD/PoleDigital/
 map gP cd ~/external
 map gr cd ~/github
