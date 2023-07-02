@@ -2,6 +2,7 @@ vim.cmd('filetype plugin on')
 
 -- don't automcomment on new lines
 vim.cmd('autocmd FileType * set formatoptions-=cro')
+vim.cmd([[autocmd VimLeave *.tex !texclear %]])
 
 -- autocomplete
 vim.opt.wildmenu = true
