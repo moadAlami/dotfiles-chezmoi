@@ -13,4 +13,5 @@ vim.keymap.set('n', '<a-q>', function() ui.nav_file(1) end)
 vim.keymap.set('n', '<a-w>', function() ui.nav_file(2) end)
 vim.keymap.set('n', '<a-e>', function() ui.nav_file(3) end)
 vim.keymap.set('n', "<a-r>", function() ui.nav_file(4) end)
+vim.keymap.set('n', "<a-t>", function() ui.nav_file(5) end)
 
