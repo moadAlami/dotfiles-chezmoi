@@ -12,14 +12,24 @@ end
 
 function Xelatex()
     vim.cmd('write')
-    vim.cmd('cd %:p:h')
-    vim.cmd('!xelatex %:p -synctex=1')
+    local fp = vim.fn.expand('%:t')
+    if fp == 'main.tex' then
+	vim.cmd('cd %:p:h')
+    else
+	vim.cmd('cd %:p:h:h')
+    end
+    vim.cmd('!xelatex main.tex -synctex=1')
     vim.cmd('cd -')
 end
 
 function Bibtex()
-    vim.cmd('cd %:p:h')
-    vim.cmd('!bibtex %:t:r')
+    local fp = vim.fn.expand('%:t')
+    if fp == 'main.tex' then
+	vim.cmd('cd %:p:h')
+    else
+	vim.cmd('cd %:p:h:h')
+    end
+    vim.cmd('!bibtex main')
     vim.cmd('cd -')
 end
 
