@@ -47,6 +47,8 @@ end
 
 vim.keymap.set('n', '<leader>ar', ':AngryReviewer<CR>')
 vim.keymap.set('n', '<leader>s', ':source /home/mouad/.config/nvim/ftplugin/tex.lua<CR>')
+vim.keymap.set('n', '<leader>lf', ':!textidote --check fr --output html % > report.html; firefox report.html <c-r><CR><CR>')
+vim.keymap.set('n', '<leader>le', ':!textidote --check en --output html % > report.html; firefox report.html <c-r><CR><CR>')
 
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>c', ':lua FullCompile()<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>xc', ':lua Xelatex()<LF>', { silent = true })
