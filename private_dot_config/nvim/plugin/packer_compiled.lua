@@ -195,6 +195,11 @@ _G.packer_plugins = {
     path = "/home/mouad/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
+  vimling = {
+    loaded = true,
+    path = "/home/mouad/.local/share/nvim/site/pack/packer/start/vimling",
+    url = "https://github.com/LukeSmithxyz/vimling"
+  },
   vimwiki = {
     loaded = true,
     path = "/home/mouad/.local/share/nvim/site/pack/packer/start/vimwiki",

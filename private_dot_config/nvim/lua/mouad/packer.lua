@@ -52,6 +52,8 @@ return require('packer').startup(function(use)
 
     use { 'lewis6991/gitsigns.nvim' }
 
+    use { 'LukeSmithxyz/vimling' }
+
     -- use { 'luk400/vim-jukit' } -- jupyter notebook alternative
 
     -- colorschemes

@@ -15,3 +15,6 @@ vim.keymap.set('n', '<F8>', ':setlocal spell! spelllang=en<CR>')
 
 -- correct misspelling
 vim.keymap.set('i',  '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
+
+-- deadkeys
+vim.keymap.set('n', "<leader><leader>d", ":call ToggleDeadKeys()<CR>")
