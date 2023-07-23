@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+LOGFILE="$HOME/.cache/battery.log"
+echo "#battery log" > "$LOGFILE"
+
+PREV_STATE=""
+while true
+do
+    ADAPTER="$(acpi -a | awk '{ print $3 }')"
+    STATE="$(acpi -b | awk '{ print $3, $4}' | sed 's/,//g;')"
+
+    # Get the current timestamp
+    TIMESTAMP=$(date '+%H:%M:%S')
+
+    if [ "$STATE" != "$PREV_STATE" ]; then
+	echo "$TIMESTAMP | $ADAPTER | $STATE" >> "$LOGFILE"
+	PREV_STATE="$STATE"
+    fi
+    sleep 1
+done

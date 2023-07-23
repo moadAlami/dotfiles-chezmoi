@@ -1,0 +1,19 @@
+#!/usr/bin/sh
+
+case $BLOCK_BUTTON in
+	1) bluetoothctl power on && bluetoothctl connect E0:67:81:13:77:4A && notify-send "Bluetooth status" "Connected 🎧" &&  pkill -RTMIN+4 dwmblocks ;;
+	3) bluetoothctl power off &> /dev/null &&  pkill -RTMIN+4 dwmblocks ;;
+esac
+
+function bluetooth {
+	declare -i perc=$(journalctl -b --user-unit pulseaudio -g "Battery Level" -o cat | tail -n 1 | awk '{ print $3 }' | sed s/%//)
+	icon=''
+
+	if [[ "$(bluetoothctl info | head -n 1)" == "Missing device address argument" ]];then
+		printf " $icon OFF "
+	else
+		printf " $icon $perc%% " 
+	fi
+}
+
+bluetooth

@@ -1,0 +1,18 @@
+#!/usr/bin/sh
+
+case $BLOCK_BUTTON in
+	1) mpc toggle &> /dev/null ;;
+	4) mpc prev &> /dev/null ;;
+	5) mpc next &> /dev/null ;;
+esac
+
+if [[ "$(mpc | wc -l)" == 3 ]];then if mpc | grep playing >/dev/null;then
+		icon=''
+	else 
+		icon=" ⏸"
+	fi
+
+	time="$(mpc | sed -n '2 p' | awk '{ print $3 }')"
+
+	echo " 🎹 $(ncmpcpp -q --current-song='{{%a - }%t}|{%f}') ($time)$icon"
+fi

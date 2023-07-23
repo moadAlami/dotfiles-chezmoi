@@ -1,0 +1,43 @@
+#!/usr/bin/zsh
+
+function battery {
+
+	if ! [[ "$(acpi)" = "" ]];then 
+		state=$(acpi | awk -F "[',:']" '{print $2}' | sed 's/\ //')
+		declare -i perc=$(acpi | awk -F "[',']" '{print $2}' | sed 's/\%//; s/\ //')
+		time="("$(acpi | awk -F "[':,']" '{print $4":"$5}' | sed 's/\ //')")"
+
+
+		if [[ "$state" == 'Not charging'  ]] || [[ "$state" == 'Discharging'  ]];then
+			bat='🔋'
+			if [[ $perc -le 5 ]];then
+				bCase=1
+				notify-send "$perc% Low battery $time" -h string:x-canonical-private-synchronous:anything
+				# systemctl suspend
+			elif [[ $perc -le 15 ]];then
+				notify-send "$bat$perc% Low battery $time" -h string:x-canonical-private-synchronous:anything
+			fi
+		elif [[ "$state" == 'Charging' ]];then
+			bat='⚡'
+		elif [[ "$state" == "Unknown" ]];then
+			bat='🔋'
+			bCase=2
+		elif [[ "$state" == "Full" ]];then
+			bCase=3
+		fi
+
+		if [[ $bCase == 1 ]];then 
+			printf "Low battery"
+		elif [[ $bCase == 2 ]];then
+			printf "$bat $perc%%"
+		elif [[ $bCase == 3 ]];then
+			printf "Battery full"
+		else 
+			printf "$bat $perc%%"
+		fi
+	fi
+}
+
+if [[ $HOST != "DESKTOP" ]];then
+	battery
+fi
