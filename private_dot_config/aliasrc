@@ -12,7 +12,7 @@ alias vim="nvim" \
     ll="ls -lhN --color=auto --group-directories-first" \
     grep="grep --color=auto" \
     diff="diff --color=auto" \
-    yt="youtube-dl --add-metadata -i -o '%(title)s.%(ext)s'" \
+    yt="yt-dlp --add-metadata -i -o '%(title)s.%(ext)s'" \
     yta="yt -x -f bestaudio/best --audio-format opus --audio-quality 0" \
     YT="ytfzf -t" \
     upc="sudo pacman -Syu" \
@@ -52,5 +52,5 @@ cw() { feh --bg-fill --randomize -r $HOME/Pictures/Wallpapers ;}
 ss() { du -a ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 gr() { cd $(ls -d $HOME/github/*/ | fzf) ;}
-sc() { cd $(ls -d /home/mouad/.config/*/ | fzf) ;}
+# sc() { cd $(ls -d /home/mouad/.config/*/ | fzf) ;}
 efn() { cd $HOME/.config/nvim && nvim  ;}
