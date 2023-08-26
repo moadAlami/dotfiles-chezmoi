@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 alias vim="nvim" \
+    bat="bat -n" \
     elinks="elinks -config-dir $HOME/.config/elinks" \
     abook="abook -C $HOME/.config/abook/abookrc --datafile=$HOME/.config/abook/addressbook" \
     lf="lfub" \
@@ -29,6 +30,7 @@ alias vim="nvim" \
     gP="cd $HOME/external" \
     gm="cd $HOME/SSD/College/M.Sc" \
     gh="cd $HOME/" \
+    gk="cd $HOME/external/piano" \
     gt="cd $HOME/external/torrents/" \
     gd="cd $HOME/Downloads" \
     gl="cd $HOME/SSD/PoleDigital/" \
