@@ -29,6 +29,6 @@ function torrent {
 }
 
 
-if [[ $HOST == "DESKTOP" ]];then
+if [[ $HOST == "HOME" ]];then
 	torrent
 fi
