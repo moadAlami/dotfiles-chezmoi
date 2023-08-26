@@ -1,8 +1,8 @@
-function FullCompile()
-    vim.cmd('write')
-    vim.cmd('silent !mkdir out')
-    vim.cmd('!latexmk -outdir=out/ --output-format=pdf -file-line-error -interaction=errorstopmode -synctex=1 %:p')
-end
+-- function FullCompile()
+--     vim.cmd('write')
+--     vim.cmd('silent !mkdir out')
+--     vim.cmd('!latexmk -outdir=out/ --output-format=pdf -file-line-error -interaction=errorstopmode -synctex=1 %:p')
+-- end
 
 function Compile()
     vim.cmd('write')
@@ -18,8 +18,7 @@ function Xelatex()
     else
 	vim.cmd('cd %:p:h:h')
     end
-    -- vim.cmd('!xelatex main.tex -synctex=1')
-    vim.cmd('!latexmk -pdfxe main.tex -synctex=1')
+    vim.cmd('!xelatex main.tex -synctex=1')
     vim.cmd('cd -')
 end
 
@@ -51,7 +50,7 @@ vim.keymap.set('n', '<leader>s', ':source /home/mouad/.config/nvim/ftplugin/tex.
 vim.keymap.set('n', '<leader>lf', ':!textidote --check fr --output html % > report.html; firefox report.html <c-r><CR><CR>')
 vim.keymap.set('n', '<leader>le', ':!textidote --check en --output html % > report.html; firefox report.html <c-r><CR><CR>')
 
-vim.api.nvim_buf_set_keymap(0, 'n', '<leader>c', ':lua Compile()<LF>', { silent = true })
+vim.api.nvim_buf_set_keymap(0, 'n', '<leader>c', ':write<CR>:!make<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>xc', ':lua Xelatex()<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>o', ':lua OpenPdf()<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>xb', ':lua Bibtex()<LF>', { silent = true })
