@@ -19,8 +19,9 @@ cmd open ${{
 		application/*spreadsheet*) setsid -f localc "$f" ;;
 		application/*excel*) setsid -f localc "$f" ;;
 		application/pdf) setsid -f zathura "$f" &> /dev/null ;;
+		audio/midi) timidity -Aa -- "$f" ;;
 		audio/*) mpv --audio-display=no "$f" ;;
-		video/*) setsid -f mpv "$f" -quiet &> /dev/null ;;
+		video/*) setsid -f mpv --pulse-latency-hacks "$f" -quiet &> /dev/null ;;
 		image/*) setsid -f feh -B "white" -- "$f" ;;
         *) xdg-open "$f" ;;
 
