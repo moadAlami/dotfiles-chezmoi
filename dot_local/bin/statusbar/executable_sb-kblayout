@@ -6,7 +6,7 @@ case $BLOCK_BUTTON in
 	1) if [[ $layout == "ar" ]] || [[ $layout == "us" ]] ;then
 		setxkbmap -option caps:escape && setxkbmap -layout fr
 	elif [[ $layout == "fr" ]];then
-		setxkbmap -layout ar
+		setxkbmap -layout ara
 	fi ;;
 	3) setxkbmap -option caps:escape -layout us ;;
 
