@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 case $BLOCK_BUTTON in
-	1) bluetoothctl power on && bluetoothctl connect E0:67:81:13:77:4A && notify-send "Bluetooth status" "Connected 🎧" &&  pkill -RTMIN+4 dwmblocks ;;
+	1) rfkill unblock bluetooth && bluetoothctl power on && bluetoothctl connect E0:67:81:13:77:4A && notify-send "Bluetooth status" "Connected 🎧" &&  pkill -RTMIN+4 dwmblocks ;;
 	3) bluetoothctl power off &> /dev/null &&  pkill -RTMIN+4 dwmblocks ;;
 esac
 

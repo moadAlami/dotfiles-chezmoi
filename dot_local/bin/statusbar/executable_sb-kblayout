@@ -14,4 +14,4 @@ esac
 
 layout="$(setxkbmap -query | grep layout | awk '{ print $2 }')"
 
-printf "$layout"
+printf "$layout \t "

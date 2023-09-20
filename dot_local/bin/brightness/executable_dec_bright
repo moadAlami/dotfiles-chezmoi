@@ -8,6 +8,6 @@ else
 	icon=🔆
 fi
 
-xbacklight -dec 10 -time 0
+xbacklight -dec 10
 
 notify-send "$icon $(xbacklight -get)%" -h string:x-canonical-private-synchronous:anything
