@@ -1,14 +1,10 @@
 #!/usr/bin/env sh
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-# mpd & # Music Player Daemon
-feh --bg-fill --no-fehbg "/home/mouad/Pictures/Wallpapers/1616205758315.jpg"
-setxkbmap -option caps:escape && setxkbmap -layout us & # Set keyboard layout
-dunst & # Notification 
-picom & # Transparency
+feh --bg-fill --no-fehbg "/home/mouad/Pictures/Wallpapers/1623955210978-2.png"
+setxkbmap -option caps:escape && setxkbmap -layout us &
+dunst &
+picom --corner-radius=30 --daemon
 sudo mount UUID=9E1839F91839D14F /home/mouad/external -o rw,dmask=022,fmask=133,uid=1000,gid=998
-transmission-daemon & # Torrent daemon
-# xinput set-prop "ASUS ROG STRIX IMPACT" "libinput Accel Speed" -0.3 # Set mouse speed
-# mailsync & # for the email module
-dwmblocks & # Status bar
+dwmblocks &
 sudo mount UUID=961E-EF65 /home/mouad/SSD -o rw,dmask=022,fmask=133,uid=1000,gid=998
