@@ -12,5 +12,3 @@ vim.api.nvim_buf_set_keymap(0, 'n', '<leader>m', ':!make<LF>', { silent = true }
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>c', ':write<CR>:!latexmk --output-format=pdf %:p<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>xc', ':write<CR>:!latexmk -pdfxe %:p<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>o', ':lua OpenPdf()<LF>', { silent = true })
-vim.api.nvim_buf_set_keymap(0, 'n', '<leader>xb', ':lua Bibtex()<LF>', { silent = true })
-vim.api.nvim_buf_set_keymap(0, 'n', '<leader>xo', ':lua OpenLocalPdf()<LF>', { silent = true })
