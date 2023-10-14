@@ -5,14 +5,9 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-
-    use {
-	'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	-- or                            , branch = '0.1.x',
-	requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-
+    use('wbthomason/packer.nvim')
+    use('nvim-lua/plenary.nvim')
+    use('nvim-telescope/telescope.nvim')
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
@@ -51,8 +46,6 @@ return require('packer').startup(function(use)
     use { 'potamides/pantran.nvim' } -- translation
 
     use { 'lewis6991/gitsigns.nvim' }
-
-    use { 'LukeSmithxyz/vimling' }
 
     -- use { 'luk400/vim-jukit' } -- jupyter notebook alternative
 
