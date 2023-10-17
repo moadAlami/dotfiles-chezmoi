@@ -38,6 +38,7 @@ alias vim="nvim" \
     eft="nvim $HOME/.config/tmux/tmux.conf" \
     efz="nvim $HOME/.zshrc" \
     efb="nvim $HOME/.config/bookmarks" \
+    efr="nvim $HOME/.config/remind/reminders.rem" \
     TR="tremc" \
     tf="source $HOME/.venv/p11/bin/activate" \
     list="nmcli device wifi list" \
