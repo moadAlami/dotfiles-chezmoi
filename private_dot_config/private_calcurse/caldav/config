@@ -27,7 +27,8 @@ HTTPS = Yes
 # of calcurse for more details. Set this option to "cal" if the configured
 # CalDAV server doesn't support tasks, such as is the case with Google
 # Calendar.
-SyncFilter = cal,todo
+# SyncFilter = cal,todo
+SyncFilter = cal
 
 # Disable this option to actually enable synchronization. If it is enabled,
 # nothing is actually written to the server or to the local data files. If you
