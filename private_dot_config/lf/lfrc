@@ -1,5 +1,7 @@
 # lf config
 
+set number
+set relativenumber
 set drawbox
 set shellopts '-eu'
 set icons
