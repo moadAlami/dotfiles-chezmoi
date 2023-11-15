@@ -13,6 +13,10 @@ if [[ "$(mpc | wc -l)" == 3 ]];then if mpc | grep playing >/dev/null;then
 	fi
 
 	time="$(mpc | sed -n '2 p' | awk '{ print $3 }')"
+	songname="$(ncmpcpp -q --current-song='{{%a - }%t}|{%f}')"
+	if [ "$(ncmpcpp -q --current-song | wc -w)" -gt 14 ];then
+	    songname="$(echo $songname | awk -F, '{ print $1"," $2"," $3 }')"
+	fi
 
-	echo " 🎹 $(ncmpcpp -q --current-song='{{%a - }%t}|{%f}') ($time)$icon"
+	echo " $songname ($time)$icon"
 fi
