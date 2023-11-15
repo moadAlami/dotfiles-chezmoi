@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+mkdir tempdir
+
+for slidesvg in $(ls *svg)
+do
+    slidepdf=$(echo "$slidesvg" | sed 's/.svg/.pdf/;')
+    inkscape $slidesvg --export-filename tempdir/$slidepdf 2> /dev/null
+done
+
+pdftk tempdir/*.pdf cat output "$1"
+
+rm -rf tempdir
