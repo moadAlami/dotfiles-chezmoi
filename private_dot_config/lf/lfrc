@@ -25,6 +25,7 @@ cmd open ${{
 		audio/midi) timidity -Aa -- "$f" ;;
 		audio/*) mpv --audio-display=no "$f" ;;
 		video/*) setsid -f mpv --pulse-latency-hacks "$f" -quiet &> /dev/null ;;
+		image/svg+xml) setsid -f inkscape -- "$f" ;;
 		image/*) setsid -f feh -B "white" -- "$f" ;;
         *) xdg-open "$f" ;;
 
@@ -119,6 +120,7 @@ map gs cd ~/.local/bin
 map gp cd ~/SSD/College/PhD
 map gt cd ~/external/torrents/
 map gl cd ~/SSD/PoleDigital/projects/IAGeoSAgri/
+map gc cd ~/SSD/CRASTE/
 
 map gP cd ~/external
 map gr cd ~/github
