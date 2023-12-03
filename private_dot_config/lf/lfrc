@@ -60,8 +60,20 @@ cmd delete ${{
 	IFS=$OIFS
 }}
 
-$mkdir -p ~/.trash
-cmd trash $IFS="$(printf '\n\t')"; mv $fx ~/.trash
+cmd trash ${{
+    clear; tput cup $(($(tput lines)/3)); tput bold
+    set -f
+    printf "%s\n\t" "$fx"
+    printf "Move to trash?[y/N]"
+    read ans
+    OIFS=$IFS
+    IFS="$(printf '\n\t')"
+    [ $ans = "y" ] && for x in $fx; do
+	escaped_name=$(printf "%q" $x)
+	eval gio trash -- "$escaped_name"
+	done
+    IFS=$OIFS
+}}
 
 cmd moveto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
