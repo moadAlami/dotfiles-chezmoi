@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+file="$(ls $HOME/.local/share/Trash/files | dmenu -i -l 20)"
+
+escaped_name=$(printf "%q" $file)
+
+gio trash --restore -- "trash:///$escaped_name"
+
+[ "$file" != ""] && notify-send "Restored" "$escaped_name"
