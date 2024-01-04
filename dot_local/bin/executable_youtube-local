@@ -2,5 +2,5 @@
 
 python $HOME/github/youtube-local/server.py &
 echo $! > $HOME/.cache/yt-local.pid
-librewolf --new-window localhost:8080
+librewolf --new-window localhost:3692
 kill -9 "$(cat $HOME/.cache/yt-local.pid)"
