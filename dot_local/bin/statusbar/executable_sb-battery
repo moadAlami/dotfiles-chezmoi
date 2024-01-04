@@ -13,7 +13,7 @@ function battery {
 			if [[ $perc -le 5 ]];then
 				bCase=1
 				notify-send "$perc% Low battery $time" -h string:x-canonical-private-synchronous:anything
-				# systemctl suspend
+				systemctl suspend
 			elif [[ $perc -le 15 ]];then
 				notify-send "$bat$perc% Low battery $time" -h string:x-canonical-private-synchronous:anything
 			fi
