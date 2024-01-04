@@ -6,7 +6,7 @@ set drawbox
 set shellopts '-eu'
 set icons
 set scrolloff 10
-set hiddenfiles ".*:*.aux:*.bbl:*.bcf:*.blg:*.run.xml:*.fold:*.cpg:*.dbf:*.prj:*.shx:*.qmd:*.sbn:*.sbx:*.shx"
+set hiddenfiles ".*:*.aux:*.bbl:*.bcf:*.blg:*.run.xml:*.fold:*.cpg:*.dbf:*.prj:*.shx:*.qmd:*.sbn:*.sbx:*.shx:*.qix"
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 
