@@ -1,10 +1,10 @@
 text/plain; nvim %s ;
-audio/*; mpv %s ;
+audio/*; setsid mpv --quiet %s ;
 image/*; feh %s ;
 
-application/msword; /user/bin/xdg-open %s
-application/pdf; zathura %s
-application/postscript; /usr/bin/xdg-open %s
+application/msword; setsid /user/bin/xdg-open %s ;
+application/pdf; setsid zathura %s ;
+application/postscript; setsid /usr/bin/xdg-open %s ;
 
 text/html; /usr/bin/elinks %s ; copiousoutput
 text/html; /usr/lib/mutt-wizard/openfile %s ; nametemplate=%s.html
@@ -13,4 +13,4 @@ text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump -width=1
 application/ics; /usr/bin/calcurse -i %s && notify-send "Entry added to calendar 📅"
 text/calendar; /usr/bin/calcurse -i %s && notify-send "Entry added to calendar 📅"
 
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/libreoffice %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; setsid /usr/bin/libreoffice %s ;
