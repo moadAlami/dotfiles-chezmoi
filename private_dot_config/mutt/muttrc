@@ -5,3 +5,5 @@ macro index,pager i1 '<sync-mailbox><enter-command>source /home/mouad/.config/mu
 macro index,pager i2 '<sync-mailbox><enter-command>source /home/mouad/.config/mutt/accounts/mouad.alami.machichi@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to mouad.alami.machichi@gmail.com"
 
 macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>abook -C /home/mouad/.config/abook/abookrc --datafile=/home/mouad/.config/abook/addressbook --add-email<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to abook"
+
+macro pager \cb <pipe-entry>'urlscan'<enter> 'Follow links with urlview'
