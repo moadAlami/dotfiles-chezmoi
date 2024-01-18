@@ -2,17 +2,15 @@ text/plain; nvim %s ;
 audio/*; mpv %s ;
 image/*; feh %s ;
 
-application/msword; /user/bin/xdg-open %s
+application/msword; setsid -f /user/bin/xdg-open %s
 application/pdf; zathura %s
 application/postscript; /usr/bin/xdg-open %s
 
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
-
-# text/html; /usr/bin/elinks %s ; copiousoutput
-# text/html; /usr/lib/mutt-wizard/openfile %s ; nametemplate=%s.html
-# text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump -width=1024 %s; nametemplate=%s.html; copiousoutput;
+text/html; /usr/bin/elinks %s ; copiousoutput
+text/html; /usr/lib/mutt-wizard/openfile %s ; nametemplate=%s.html
+text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump -width=1024 %s; nametemplate=%s.html; copiousoutput;
 
 application/ics; /usr/bin/calcurse -i %s && notify-send "Entry added to calendar 📅"
 text/calendar; /usr/bin/calcurse -i %s && notify-send "Entry added to calendar 📅"
 
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; /usr/bin/libreoffice %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; setsid -f /usr/bin/libreoffice %s
