@@ -16,7 +16,7 @@ set trash = +Trash
 set record = +Sent
 set signature = /home/mouad/.config/mutt/signatures/gmail
 
-macro index o "<shell-escape>mw -y mouad.alami.machichi@gmail.com<enter>" "run mbsync to sync mouad.alami.machichi@gmail.com"
+macro index o "<shell-escape>mailsync mouad.alami.machichi@gmail.com<enter>" "run mbsync to sync mouad.alami.machichi@gmail.com"
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a mouad.alami.machichi@gmail.com<enter>"  "publish GPG key to WKS provider"
 macro index \eh "<pipe-message>/usr/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a mouad.alami.machichi@gmail.com<enter>" "confirm GPG publication"
 
