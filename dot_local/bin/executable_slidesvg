@@ -2,7 +2,7 @@
 
 mkdir tempdir
 
-for slidesvg in $(ls *svg)
+for slidesvg in *.svg
 do
     slidepdf=$(echo "$slidesvg" | sed 's/.svg/.pdf/;')
     inkscape $slidesvg --export-filename tempdir/$slidepdf 2> /dev/null
