@@ -1,0 +1,16 @@
+#!/usr/bin/zsh
+
+if [ -z "$1" ]; then
+    echo "Error: No email provided."
+    exit 1
+fi
+
+contacts_file="/home/$USER/.config/contacts"
+
+email="$(echo $1 | grep From | awk '{ print $(NF) }')"
+name="$(echo $1 | grep From | awk '{for (i=2; i<NF; i++) printf "%s ", $i; print ""}')"
+
+grep $name$email $contacts_file \
+    && echo "Email already added." \
+    || {echo $name$email >> "$contacts_file"; echo "Email added to contact list: $name$email"}
+exit 1

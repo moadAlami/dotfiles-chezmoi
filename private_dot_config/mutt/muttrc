@@ -4,7 +4,10 @@ source /home/mouad/.config/mutt/accounts/mouad.alami@poledigital.ma.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/mouad/.config/mutt/accounts/mouad.alami@poledigital.ma.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to mouad.alami@poledigital.ma"
 macro index,pager i2 '<sync-mailbox><enter-command>source /home/mouad/.config/mutt/accounts/mouad.alami.machichi@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to mouad.alami.machichi@gmail.com"
 
-macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>abook -C /home/mouad/.config/abook/abookrc --datafile=/home/mouad/.config/abook/addressbook --add-email<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to abook"
+macro index,pager a \
+    "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>xargs -0 -I{} contactadd {}<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" \
+    "add the sender email address to contacts"
+
 
 macro pager \cb <pipe-entry>'urlscan'<enter> 'Follow links with urlview'
 auto_view text/html text/calendar application/ics
