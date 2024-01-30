@@ -3,7 +3,7 @@
 set realname = "Mouad Alami Machichi"
 set from = "mouad.alami@poledigital.ma"
 set sendmail = "msmtp -a mouad.alami@poledigital.ma"
-alias me mouad.alami <mouad.alami@poledigital.ma>
+alias me poledigital <mouad.alami@poledigital.ma>
 set folder = "/home/mouad/.local/share/mail/mouad.alami@poledigital.ma"
 set header_cache = /home/mouad/.cache/mutt-wizard/mouad.alami@poledigital.ma/headers
 set message_cachedir = /home/mouad/.cache/mutt-wizard/mouad.alami@poledigital.ma/bodies
@@ -17,7 +17,9 @@ set record = +Sent
 set signature = /home/mouad/.config/mutt/signatures/poledigital
 
 macro index o "<shell-escape>mailsync mouad.alami@poledigital.ma<enter>" "run mbsync to sync mouad.alami@poledigital.ma"
-macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a mouad.alami@poledigital.ma<enter>"  "publish GPG key to WKS provider"
 macro index \eh "<pipe-message>/usr/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a mouad.alami@poledigital.ma<enter>" "confirm GPG publication"
 
-mailboxes "=INBOX.Archive" "=INBOX.spam" "=INBOX.Trash" "=INBOX.Drafts" "=INBOX.Sent" "=INBOX.Junk"
+macro index,pager gp "<change-folder>=spam<enter>" "go to spam"
+macro index,pager Mp "<save-message>=spam<enter>" "move mail to spam"
+
+mailboxes "=Archive" "=INBOX" "=Sent" "=spam" "=Trash" "=Drafts" 
