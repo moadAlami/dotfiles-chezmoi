@@ -13,5 +13,5 @@ text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump -width=1
 application/ics; /usr/bin/calcurse -i %s && notify-send "Entry added to calendar 📅"
 text/calendar; /usr/bin/calcurse -i %s && notify-send "Entry added to calendar 📅"
 
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; setsid -f /usr/bin/libreoffice %s
-application/vnd.openxmlformats-officedocument.presentationml.presentation; setsid -f loimpress %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; setsid -f libreoffice %s
+application/vnd.openxmlformats-officedocument.presentationml.presentation; setsid -f libreoffice %s
