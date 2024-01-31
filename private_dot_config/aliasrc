@@ -3,7 +3,6 @@
 alias vim="nvim" \
     bat="bat -n" \
     elinks="elinks -config-dir $HOME/.config/elinks" \
-    abook="abook -C $HOME/.config/abook/abookrc --datafile=$HOME/.config/abook/addressbook" \
     lf="lfub" \
     ran="ranger" \
     py="python3" \
