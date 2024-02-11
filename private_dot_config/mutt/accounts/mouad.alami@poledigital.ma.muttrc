@@ -13,35 +13,34 @@ source /usr/share/mutt-wizard/switch.muttrc
 set spoolfile = +INBOX
 set postponed = +Drafts
 set trash = +Trash
-set record = +Sent
+# set record = +Sent
 set signature = /home/mouad/.config/mutt/signatures/poledigital
 
 macro index o "<shell-escape>mailsync mouad.alami@poledigital.ma<enter>" "run mbsync to sync mouad.alami@poledigital.ma"
 macro index \eh "<pipe-message>/usr/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a mouad.alami@poledigital.ma<enter>" "confirm GPG publication"
 
-macro index,pager gp "<change-folder>=PFE/processed<enter>" "go to PFE/processed"
-macro index,pager Mp "<save-message>=PFE/processed<enter>" "move mail to PFE/processed"
-macro index,pager M2 "<save-message>=PFE/S2<enter>" "save mail to PFE/S2"
-macro index,pager M3 "<save-message>=PFE/S3<enter>" "save mail to PFE/S3"
-macro index,pager M6 "<save-message>=PFE/S6<enter>" "save mail to PFE/S6"
-macro index,pager M9 "<save-message>=PFE/S9<enter>" "save mail to PFE/S9"
-macro index,pager Mo "<save-message>=PFE/hors<enter>" "save mail to PFE/hors"
-macro index,pager Mr "<save-message>=PFE/any<enter>" "save mail to PFE/any"
-macro index,pager Mc "<save-message>=PFE/contacts<enter>" "save mail to PFE/contacts"
+macro index,pager ga "<change-folder>=Archive<enter>" "go to Archive"
+macro index,pager gi "<change-folder>=INBOX<enter>" "go to INBOX"
+macro index,pager gs "<change-folder>=Sent<enter>" "go to Sent"
+macro index,pager gt "<change-folder>=Trash<enter>" "go to Trash"
+macro index,pager gd "<change-folder>=Drafts<enter>" "go to Drafts"
+macro index,pager gp "<change-folder>=spam<enter>" "go to spam"
+macro index,pager gc "<change-folder>=candidatures<enter>" "go to candidatures"
 
-macro index,pager C2 "<copy-message>=PFE/S2<enter>" "copy mail to PFE/S2"
-macro index,pager C3 "<copy-message>=PFE/S3<enter>" "copy mail to PFE/S3"
-macro index,pager C6 "<copy-message>=PFE/S6<enter>" "copy mail to PFE/S6"
-macro index,pager C9 "<copy-message>=PFE/S9<enter>" "copy mail to PFE/S9"
-macro index,pager Co "<save-message>=PFE/hors<enter>" "copy mail to PFE/hors"
-macro index,pager Cc "<save-message>=PFE/contacts<enter>" "copy mail to PFE/contacts"
+macro index,pager Ma "<save-message>=Archive<enter>" "save mail to Archive"
+macro index,pager Mi "<save-message>=INBOX<enter>" "save mail to INBOX"
+macro index,pager Ms "<save-message>=Sent<enter>" "save mail to Sent"
+macro index,pager Mt "<save-message>=Trash<enter>" "save mail to Trash"
+macro index,pager Md "<save-message>=Drafts<enter>" "save mail to Drafts"
+macro index,pager Mp "<save-message>=spam<enter>" "save mail to spam"
+macro index,pager Mc "<save-message>=candidatures<enter>" "save mail to candidatures"
 
-macro index,pager g2 "<change-folder>=PFE/S2<enter>" "change folder mail to PFE/S2"
-macro index,pager g3 "<change-folder>=PFE/S3<enter>" "change folder mail to PFE/S3"
-macro index,pager g6 "<change-folder>=PFE/S6<enter>" "change folder mail to PFE/S6"
-macro index,pager g9 "<change-folder>=PFE/S9<enter>" "change folder mail to PFE/S9"
-macro index,pager gr "<change-folder>=PFE/any<enter>" "save mail to PFE/any"
-macro index,pager go "<change-folder>=PFE/hors<enter>" "change folder mail to PFE/hors"
-macro index,pager gc "<change-folder>=PFE/contacts<enter>" "change folder mail to PFE/contacts"
+macro index,pager Ca "<copy-message>=Archive<enter>" "copy mail to Archive"
+macro index,pager Ci "<copy-message>=INBOX<enter>" "copy mail to INBOX"
+macro index,pager Cs "<copy-message>=Sent<enter>" "copy mail to Sent"
+macro index,pager Ct "<copy-message>=Trash<enter>" "copy mail to Trash"
+macro index,pager Cd "<copy-message>=Drafts<enter>" "copy mail to Drafts"
+macro index,pager Cp "<copy-message>=spam<enter>" "copy mail to spam"
+macro index,pager Cc "<copy-message>=candidatures<enter>" "copy mail to candidatures"
 
-mailboxes "=PFE/S2" "=PFE/S3" "=PFE/S6" "=PFE/S9" "=PFE/any" "=PFE/hors" "=PFE/contacts" "=Archive" "=INBOX" "=Sent" "=PFE/processed" "=Trash" "=Drafts" 
+mailboxes "=Archive" "=INBOX" "=Sent" "=Trash" "=Drafts" "=spam" "=candidatures"
