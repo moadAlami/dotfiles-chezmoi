@@ -1,11 +1,11 @@
 # vim: filetype=neomuttrc
+set editor = "nvim +8 -c 'set textwidth=0' -c 'set spell spelllang=fr,en'"
 set mailcap_path = $HOME/.config/mutt/mailcap:/usr/share/mutt-wizard/mailcap:$mailcap_path
 set mime_type_query_command = "file --mime-type -b %s"
 set date_format="%y/%m/%d %I:%M%p"
 set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set sort = 'reverse-date'
 set smtp_authenticators = 'gssapi:login'
-set query_command = "abook --mutt-query '%s'"
 set rfc2047_parameters = yes
 set sleep_time = 0		# Pause 0 seconds for informational messages
 set markers = no		# Disables the `+` displayed at line wraps
@@ -59,11 +59,10 @@ bind index,pager,browser d half-down
 bind index,pager,browser u half-up
 bind index,pager S sync-mailbox
 bind index,pager R group-reply
-bind index \031 previous-undeleted	# Mouse wheel
-bind index \005 next-undeleted		# Mouse wheel
-bind pager \031 previous-line		# Mouse wheel
-bind pager \005 next-line		# Mouse wheel
-bind editor <Tab> complete-query
+bind index \031 noop	# Mouse wheel
+bind index \005 noop 	# Mouse wheel
+bind pager \031 noop	# Mouse wheel
+bind pager \005 noop	# Mouse wheel
 
 
 macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>abook --add-email<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to abook"
@@ -101,7 +100,6 @@ alternative_order text/html text/plain text/enriched text/*
 set beep_new
 
 set use_threads=reverse sort=date sort_aux=date
-set query_command = "xdotool type \"$(grep -Ev '^($|#)' ~/.config/contacts | dmenu -i -l 50)\""
 # source colorschemes/mutt-gruvbox/colors-gruvbox-shuber.muttrc
 # source colorschemes/mutt-gruvbox/colors-gruvbox-shuber-extended.muttrc
 source colorschemes/dracula.muttrc
