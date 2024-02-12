@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# based on a script by Luke Smith
+
+setxkbmap -option caps:escape && setxkbmap -layout us
+xset -q | grep -q "Caps Lock:\s*on" && xdotool key Caps_Lock
