@@ -13,7 +13,7 @@ source /usr/share/mutt-wizard/switch.muttrc
 set spoolfile = +INBOX
 set postponed = +Drafts
 set trash = +Trash
-# set record = +Sent
+set record = +Sent
 set signature = /home/mouad/.config/mutt/signatures/poledigital
 
 macro index o "<shell-escape>mailsync mouad.alami@poledigital.ma<enter>" "run mbsync to sync mouad.alami@poledigital.ma"
