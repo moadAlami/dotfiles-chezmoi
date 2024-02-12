@@ -2,7 +2,7 @@
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 feh --bg-fill --no-fehbg --randomize -r $HOME/Pictures/Wallpapers
-setxkbmap -option caps:escape && setxkbmap -layout us &
+remapd &
 dunst &
 mpd &
 picom --corner-radius=20 --daemon
