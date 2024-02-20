@@ -12,7 +12,7 @@ bind-key a toggle-article-read
 bind-key D delete-article
 bind-key x pb-delete
 
-macro m set browser "mpv --pulse-latency-hacks %u" ;
+macro m set browser "setsid -f mpv -quiet --pulse-latency-hacks %u 2> /dev/null" ;
 macro w set browser "w3m %u" ;
 macro f set browser "librewolf %u" ;
 macro i set browser "feh %u" ;
