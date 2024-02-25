@@ -6,7 +6,6 @@ ui {
 }
 keybinds clear-defaults=true {
     normal {
-	unbind "Ctrl t"
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
     }
@@ -41,7 +40,7 @@ keybinds clear-defaults=true {
         bind "z" { TogglePaneFrames; SwitchToMode "Normal"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
-        bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+        //bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
     }
     move {
         bind "Ctrl h" { SwitchToMode "Normal"; }
@@ -54,7 +53,7 @@ keybinds clear-defaults=true {
     }
     tab {
         bind "Ctrl a" { SwitchToMode "Normal"; }
-        bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "c" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "h" "Left" "Up" "k" { GoToPreviousTab; }
         bind "l" "Right" "Down" "j" { GoToNextTab; }
         bind "n" { NewTab; SwitchToMode "Normal"; }
@@ -127,6 +126,7 @@ keybinds clear-defaults=true {
             SwitchToMode "Normal"
         }
     }
+    /*
     tmux {
         bind "[" { SwitchToMode "Scroll"; }
         bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
@@ -150,6 +150,7 @@ keybinds clear-defaults=true {
         bind "Space" { NextSwapLayout; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
+    */
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
        // bind "Ctrl q" { Quit; }
@@ -169,9 +170,11 @@ keybinds clear-defaults=true {
     shared_except "pane" "locked" {
         bind "Ctrl p" { SwitchToMode "Pane"; }
     }
+    /*
     shared_except "resize" "locked" {
         bind "Ctrl n" { SwitchToMode "Resize"; }
     }
+    */
     shared_except "scroll" "locked" {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
     }
@@ -184,9 +187,11 @@ keybinds clear-defaults=true {
     shared_except "move" "locked" {
         bind "Ctrl h" { SwitchToMode "Move"; }
     }
+    /*
     shared_except "tmux" "locked" {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
     }
+    */
 }
 
 plugins {
@@ -210,7 +215,7 @@ plugins {
 //    - true
 //    - false (Default)
 //
-// simplified_ui true
+simplified_ui true
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
@@ -258,31 +263,31 @@ plugins {
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
-// themes {
-//     dracula {
-//         fg 248 248 242
-//         bg 40 42 54
-//         red 255 85 85
-//         green 80 250 123
-//         yellow 241 250 140
-//         blue 98 114 164
-//         magenta 255 121 198
-//         orange 255 184 108
-//         cyan 139 233 253
-//         black 0 0 0
-//         white 255 255 255
-//     }
-// }
+themes {
+    dracula {
+        fg 248 248 242
+        bg 40 42 54
+        red 255 85 85
+        green 80 250 123
+        yellow 241 250 140
+        blue 98 114 164
+        magenta 255 121 198
+        orange 255 184 108
+        cyan 139 233 253
+        black 0 0 0
+        white 255 255 255
+    }
+}
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "default"
+theme "dracula"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -296,7 +301,7 @@ plugins {
 //   - true (default)
 //   - false
 //
-// mouse_mode false
+mouse_mode false
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
@@ -312,7 +317,7 @@ plugins {
 // that will be used by default if this option is not set.
 // Examples:
 //
-// copy_command "xclip -selection clipboard" // x11
+copy_command "xclip" // x11
 // copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 
