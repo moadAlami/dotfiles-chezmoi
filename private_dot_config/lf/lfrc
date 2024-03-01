@@ -134,7 +134,7 @@ map gM cd ~/data/Music
 map gs cd ~/.local/bin
 map gp cd ~/SSD/College/PhD
 map gt cd ~/external/torrents/
-map gl cd ~/SSD/PoleDigital/projects/IAGeoSAgri/
+map gl cd ~/SSD/PoleDigital
 map gc cd ~/SSD/CRASTE/
 
 map gP cd ~/external
