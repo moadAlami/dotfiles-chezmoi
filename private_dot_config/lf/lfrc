@@ -22,7 +22,7 @@ cmd open ${{
 		application/*excel*) setsid -f localc "$f" ;;
 		application/pdf) setsid -f zathura "$f" &> /dev/null ;;
 		application/postscript) setsid -f zathura "$f" &> /dev/null ;;
-		audio/midi) timidity -Aa -- "$f" ;;
+		audio/midi) fluidsynth -a pulseaudio -g 1 "$f" ;;
 		audio/*) mpv --audio-display=no "$f" ;;
 		video/*) setsid -f mpv --pulse-latency-hacks "$f" -quiet &> /dev/null ;;
 		image/svg+xml) setsid -f inkscape -- "$f" ;;
