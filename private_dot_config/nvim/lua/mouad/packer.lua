@@ -42,12 +42,9 @@ return require('packer').startup(function(use)
     }
 
     use { 'tommcdo/vim-lion' }
-    use { 'vimwiki/vimwiki' }
     use { 'potamides/pantran.nvim' } -- translation
 
     use { 'lewis6991/gitsigns.nvim' }
-
-    -- use { 'luk400/vim-jukit' } -- jupyter notebook alternative
 
     -- colorschemes
     use { "catppuccin/nvim", as = "catppuccin" }
@@ -60,4 +57,6 @@ return require('packer').startup(function(use)
 	    ts_update()
 	end,
     }
+
+    use { 'dstein64/vim-startuptime' }
 end)
