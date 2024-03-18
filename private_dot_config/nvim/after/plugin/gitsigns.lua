@@ -64,6 +64,7 @@ require('gitsigns').setup {
 	-- Actions
 	map('n', '<leader>hs', gs.stage_hunk)
 	map('n', '<leader>hu', gs.undo_stage_hunk)
+	map('n', '<leader>hr', gs.reset_hunk)
 	map('n', '<leader>hR', gs.reset_buffer)
 	map('n', '<leader>hp', gs.preview_hunk)
 
