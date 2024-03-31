@@ -92,3 +92,5 @@ compinit
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 export PATH="${PATH}:$HOME/.local/bin"
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda/
+export TF_CPP_MIN_LOG_LEVEL=2
