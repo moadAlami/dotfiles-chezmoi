@@ -85,11 +85,10 @@ bind index,pager \Cp sidebar-prev-new
 bind index,pager \Cn sidebar-next-new
 bind index,pager B sidebar-toggle-visible
 
-alias pole loubna elmansouri <loubna.elmansouri@poledigital.ma>, Yasmina Imani <yasmina.imani@poledigital.ma>, Rachid Hadria <rachid.hadria@poledigital.ma>, Yassine Maach <yassine.maach@poledigital.ma>, Walid Khaddi <walid.khaddi@poledigital.ma>, Brahim Hda <brahim.hda@poledigital.ma>, Mehdi Fakes <mehdi.fakes@poledigital.ma>
-
 source /home/mouad/.config/mutt/accounts/mouad.alami@poledigital.ma.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/mouad/.config/mutt/accounts/mouad.alami@poledigital.ma.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to mouad.alami@poledigital.ma"
 macro index,pager i2 '<sync-mailbox><enter-command>source /home/mouad/.config/mutt/accounts/mouad.alami.machichi@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to mouad.alami.machichi@gmail.com"
+macro index,pager i3 '<sync-mailbox><enter-command>source /home/mouad/.config/mutt/accounts/contact@poledigital.ma.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to contact@poledigital.ma"
 
 macro index,pager a \
     "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>xargs -0 -I{} contactadd {}<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" \
@@ -105,5 +104,3 @@ set use_threads=reverse sort=last-date sort_aux=date
 # source colorschemes/mutt-gruvbox/colors-gruvbox-shuber.muttrc
 # source colorschemes/mutt-gruvbox/colors-gruvbox-shuber-extended.muttrc
 source colorschemes/dracula.muttrc
-
-
