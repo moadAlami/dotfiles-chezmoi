@@ -8,7 +8,7 @@ vim.keymap.set('n', '<leader>s', ':source /home/mouad/.config/nvim/ftplugin/tex.
 vim.keymap.set('n', '<leader>lf', ':!textidote --check fr --output html % > report.html; firefox report.html <c-r><CR><CR>')
 vim.keymap.set('n', '<leader>le', ':!textidote --check en --output html % > report.html; firefox report.html <c-r><CR><CR>')
 
-vim.api.nvim_buf_set_keymap(0, 'n', '<leader>b', ':!make<LF>', { silent = true })
+vim.api.nvim_buf_set_keymap(0, 'n', '<leader>b', ':write<CR>:!make<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>g', ':!makeglossaries %:r<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>c', ':write<CR>:!latexmk --output-format=pdf %:p<LF>', { silent = true })
 vim.api.nvim_buf_set_keymap(0, 'n', '<leader>xc', ':write<CR>:!latexmk -pdfxe %:p<LF>', { silent = true })
