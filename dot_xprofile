@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-feh --bg-fill --no-fehbg --randomize -r $HOME/Pictures/Wallpapers
+feh --bg-fill --no-fehbg $HOME/Pictures/Wallpapers/1705116498518910.jpg
 remapd &
 dunst &
 mpd &
@@ -11,3 +11,5 @@ clipmenud &
 sudo mount UUID=9E1839F91839D14F /home/mouad/external -o rw,dmask=022,fmask=133,uid=1000,gid=998
 transmission-daemon &
 sudo mount UUID=961E-EF65 /home/mouad/SSD -o rw,dmask=022,fmask=133,uid=1000,gid=998
+xset dpms 0 0 0
+xset s off -dpms
