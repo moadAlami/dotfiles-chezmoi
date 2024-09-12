@@ -46,4 +46,4 @@ macro index,pager Cp "<copy-message>=spam<enter>" "copy mail to spam"
 macro index,pager Cc "<copy-message>=candidatures<enter>" "copy mail to candidatures"
 macro index,pager Cc "<copy-message>=Junk<enter>" "copy mail to Junk"
 
-mailboxes "=Archive" "=INBOX" "=Sent" "=Trash" "=Drafts" "=Junk" "=spam" "=candidatures"
+mailboxes "=Archive" "=INBOX" "=Sent" "=Trash" "=Drafts" "=spam"
