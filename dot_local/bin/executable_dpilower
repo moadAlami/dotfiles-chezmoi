@@ -1,0 +1,8 @@
+#!/usr/bin/zsh
+
+orig_size=$(du $1 | awk '{ print $1 }')
+inkscape $1 --export-filename $1 -d $2
+new_size=$(du $1 | awk '{ print $1 }')
+
+reduction=$(echo "($new_size - $orig_size) * 100 / $orig_size" | bc)
+echo "Size reduced from $orig_size -> $new_size ($reduction%)"
