@@ -25,7 +25,6 @@ alias vim="nvim" \
     gs="cd $HOME/.local/bin" \
     gi="cd $HOME/.config" \
     gR="cd $HOME/SSD/College/PhD/ref" \
-    gp="cd $HOME/SSD/College/PhD/" \
     gP="cd $HOME/external" \
     gm="cd $HOME/SSD/College/M.Sc" \
     gc="cd $HOME/SSD/CRASTE/" \
@@ -57,5 +56,7 @@ cw() { feh --bg-fill --randomize -r $HOME/Pictures/Wallpapers ;}
 ss() { du -a ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 gr() { cd $(ls -d $HOME/github/*/ | fzf) ;}
+gp() { cd $(ls -d $HOME/PoleDigital/projects/* | fzf) ;}
+ge() { cd $(ls -d $HOME/PoleDigital/events/* | fzf) ;}
 # sc() { cd $(ls -d /home/mouad/.config/*/ | fzf) ;}
 efn() { cd $HOME/.config/nvim && nvim  ;}
