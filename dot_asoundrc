@@ -30,9 +30,22 @@ pcm.eq {
 # Redirect the default device to go via the EQ - you may want to do
 # this last, once you are sure everything is working.  Otherwise, all
 # your audio programs will break/crash if something has gone wrong.
+# pcm.!default {
+#     type plug
+#     slave.pcm "eq"
+# }
 pcm.!default {
-    type plug
-    slave.pcm "eq"
+type pulse
+fallback "sysdefault"
+hint {
+show on
+description "Default ALSA Output (currently PulseAudio Sound Server)"
+}
+}
+
+ctl.!default {
+type pulse
+fallback "sysdefault"
 }
 
 # Redirect the OSS emulation through the EQ too (when programs are running through "aoss")
