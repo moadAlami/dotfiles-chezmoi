@@ -9,7 +9,7 @@ picom --corner-radius=20 --daemon
 dwmblocks &
 clipmenud &
 sudo mount UUID=9E1839F91839D14F /home/mouad/external -o rw,dmask=022,fmask=133,uid=1000,gid=998
-transmission-daemon &
+# transmission-daemon &
 sudo mount UUID=961E-EF65 /home/mouad/SSD -o rw,dmask=022,fmask=133,uid=1000,gid=998
 xset dpms 0 0 0
 xset s off -dpms
