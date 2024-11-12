@@ -16,7 +16,7 @@ alias vim="nvim" \
     yta="yt -x -f bestaudio/best --audio-format opus --audio-quality 0" \
     YT="ytfzf -t" \
     upc="sudo pacman -Syu" \
-    SS="sudo systemctl" \
+    s="sudo systemctl" \
     PS="sudo pacman -S" \
     PQ="sudo pacman -Q" \
     PR="sudo pacman -Rnu" \
@@ -39,7 +39,6 @@ alias vim="nvim" \
     efb="nvim $HOME/.config/bookmarks" \
     efr="nvim $HOME/.config/remind/reminders.rem" \
     TR="tremc" \
-    tf="source $HOME/.venv/p11/bin/activate" \
     list="nmcli device wifi list" \
     con="nmcli device wifi connect -ask" \
     P="aplaymidi -p 24" \
@@ -49,6 +48,7 @@ alias vim="nvim" \
     mpv='mpv --pulse-latency-hacks' \
     xclip='xclip -selection clipboard' \
     playmidi='fluidsynth -a pulseaudio' \
+    j='journalctl -xe' \
 
     command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
@@ -60,3 +60,4 @@ gp() { cd $(ls -d $HOME/PoleDigital/projects/* | fzf) ;}
 ge() { cd $(ls -d $HOME/PoleDigital/events/* | fzf) ;}
 # sc() { cd $(ls -d /home/mouad/.config/*/ | fzf) ;}
 efn() { cd $HOME/.config/nvim && nvim  ;}
+tf() { source $(ls $HOME/.venv/*/bin/activate | fzf) }
