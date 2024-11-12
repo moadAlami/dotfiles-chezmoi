@@ -39,7 +39,6 @@ alias vim="nvim" \
     efb="nvim $HOME/.config/bookmarks" \
     efr="nvim $HOME/.config/remind/reminders.rem" \
     TR="tremc" \
-    tf="source $HOME/.venv/p11/bin/activate" \
     list="nmcli device wifi list" \
     con="nmcli device wifi connect -ask" \
     P="aplaymidi -p 24" \
@@ -58,5 +57,5 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 gr() { cd $(ls -d $HOME/github/*/ | fzf) ;}
 gp() { cd $(ls -d $HOME/PoleDigital/projects/* | fzf) ;}
 ge() { cd $(ls -d $HOME/PoleDigital/events/* | fzf) ;}
-# sc() { cd $(ls -d /home/mouad/.config/*/ | fzf) ;}
+tf() { source $(ls $HOME/.venv/*/bin/activate | fzf);}
 efn() { cd $HOME/.config/nvim && nvim  ;}
