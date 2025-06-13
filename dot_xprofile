@@ -1,11 +1,12 @@
 #!/usr/bin/env sh
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-feh --bg-fill --no-fehbg --randomize -r $HOME/Pictures/Wallpapers
-setxkbmap -option caps:escape && setxkbmap -layout us &
+feh --bg-fill --no-fehbg $HOME/Pictures/Wallpapers/1705116498518910.jpg
+remapd &
 dunst &
 mpd &
 picom --corner-radius=20 --daemon
 dwmblocks &
-sudo mount UUID=9E1839F91839D14F /home/mouad/external -o rw,dmask=022,fmask=133,uid=1000,gid=998
-sudo mount UUID=961E-EF65 /home/mouad/SSD -o rw,dmask=022,fmask=133,uid=1000,gid=998
+clipmenud &
+xset dpms 0 0 0
+xset s off -dpms

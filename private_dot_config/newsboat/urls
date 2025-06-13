@@ -1,3 +1,6 @@
+https://www.gdacs.org/xml/rss_7d.xml
+https://www.marcogomiero.com/index.xml
+https://www.tawdif24.com/feeds/posts/default?alt=rss
 https://muslimskeptic.com/feed/ "~Muslim Skeptic"
 https://jeremykun.com/feed/ "~Math n programming"
 https://www.larecherche.fr/flux-rss.xml "~LaRecherche fr"
@@ -6,12 +9,9 @@ https://rss.sciencedirect.com/publication/science/15698432 "Journal"
 https://rss.sciencedirect.com/publication/science/01681699 "Journal"
 "-------------------------------------| Geology"
 https://geotripper.blogspot.com/feeds/posts/default "Geology"
-https://geologie-maroc.blogspot.com/feeds/posts/default "~Géologie Maroc" "Geology"
 "-------------------------------------| Tech"
 https://lukesmith.xyz/rss.xml "Tech"
 https://www.archlinux.org/feeds/news/ "Tech"
-"-------------------------------------| Podcast"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCcMP9z9W4jYAoqetM4wOW4Q "~Dude I called it" "Podcast"
 "-------------------------------------| YouTube - Music"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCHS5XKgf2FCBF8pZllE_bjw "~Royal Opera House" "YouTube - Music"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCgFvT6pUq9HLOvKBYERzXSQ "~Slap Like Now" "YouTube - Music"

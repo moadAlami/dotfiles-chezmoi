@@ -6,7 +6,7 @@ set drawbox
 set shellopts '-eu'
 set icons
 set scrolloff 10
-set hiddenfiles ".*:*.aux:*.bbl:*.bcf:*.blg:*.run.xml:*.fold:*.cpg:*.dbf:*.prj:*.shx:*.qmd:*.qix"
+set hiddenfiles ".*:*.aux:*.bbl:*.bcf:*.blg:*.run.xml:*.fold:*.cpg:*.dbf:*.prj:*.shx:*.qmd:*.sbn:*.sbx:*.shx:*.qix"
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 
@@ -22,7 +22,7 @@ cmd open ${{
 		application/*excel*) setsid -f localc "$f" ;;
 		application/pdf) setsid -f zathura "$f" &> /dev/null ;;
 		application/postscript) setsid -f zathura "$f" &> /dev/null ;;
-		audio/midi) timidity -Aa -- "$f" ;;
+		audio/midi) fluidsynth -a pulseaudio -g 1 "$f" ;;
 		audio/*) mpv --audio-display=no "$f" ;;
 		video/*) setsid -f mpv --pulse-latency-hacks "$f" -quiet &> /dev/null ;;
 		image/svg+xml) setsid -f inkscape -- "$f" ;;
@@ -79,7 +79,7 @@ cmd moveto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Move to where?"
-	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' ${XDG_CONFIG_HOME:-$HOME/.config}/bookmarks | fzf | sed 's|~|$HOME|')" &&
+	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' ${XDG_CONFIG_HOME:-$HOME/.config}/shortcuts | fzf | sed 's|~|$HOME|')" &&
 	for x in $fx; do
 		eval mv -iv \"$x\" \"$dest\"
 	done &&
@@ -90,7 +90,7 @@ cmd copyto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Copy to where?"
-	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' ${XDG_CONFIG_HOME:-$HOME/.config}/bookmarks | fzf | sed 's|~|$HOME|')" && for x in "$fx"; do
+	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' ${XDG_CONFIG_HOME:-$HOME/.config}/shortcuts | fzf | sed 's|~|$HOME|')" && for x in "$fx"; do
 		eval cp -ivr \"$x\" \"$dest\"
 	done &&
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
@@ -129,18 +129,14 @@ map O $mimeopen --ask $f
 # Movements
 map gd cd ~/Downloads
 map gi cd ~/.config
-map gm cd ~/SSD/College/M.Sc
-map gM cd ~/data/Music
 map gs cd ~/.local/bin
-map gp cd ~/SSD/College/PhD
+map gp cd ~/PoleDigital/projects/
+map ge cd ~/PoleDigital/events/
 map gt cd ~/external/torrents/
-map gl cd ~/SSD/PoleDigital/projects/IAGeoSAgri/
+map gl cd ~/PoleDigital
 map gc cd ~/SSD/CRASTE/
-
 map gP cd ~/external
 map gr cd ~/github
-map gR cd ~/SSD/College/PhD/ref
 map g/ cd /
-map g? cd /usr/share/doc/ranger
+map g? cd ~/.config/lf/
 map gk cd ~/external/piano
-map gC cd ~/SSD/coding/Python/PythonProgramming/pytorch

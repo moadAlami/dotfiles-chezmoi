@@ -5,7 +5,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$
 
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="librewolf"
+export BROWSER="firefox"
 export READER="zathura"
 
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
@@ -18,7 +18,6 @@ ow=📂:\
 ln=⛓:\
 or=❌:\
 ex=🎯:\
-*.txt=✍:\
 *.mom=✍:\
 *.me=✍:\
 *.ms=✍:\
@@ -29,7 +28,7 @@ ex=🎯:\
 *.jpe=📸:\
 *.jpeg=📸:\
 *.gif=🖼 :\
-*.svg=🗺:\
+*.svg=🗺 :\
 *.tif=🖼 :\
 *.tiff=🖼 :\
 *.xcf=🖌:\
@@ -97,6 +96,8 @@ ex=🎯:\
 *.gpkg=🗺:\
 *.parquet=🗃:\
 "
+
+export GEOSERVER_HOME=/opt/geoserver/2.23.1
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx

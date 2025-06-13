@@ -3,7 +3,6 @@
 alias vim="nvim" \
     bat="bat -n" \
     elinks="elinks -config-dir $HOME/.config/elinks" \
-    abook="abook -C $HOME/.config/abook/abookrc --datafile=$HOME/.config/abook/addressbook" \
     lf="lfub" \
     ran="ranger" \
     py="python3" \
@@ -17,7 +16,7 @@ alias vim="nvim" \
     yta="yt -x -f bestaudio/best --audio-format opus --audio-quality 0" \
     YT="ytfzf -t" \
     upc="sudo pacman -Syu" \
-    SS="sudo systemctl" \
+    s="sudo systemctl" \
     PS="sudo pacman -S" \
     PQ="sudo pacman -Q" \
     PR="sudo pacman -Rnu" \
@@ -26,7 +25,6 @@ alias vim="nvim" \
     gs="cd $HOME/.local/bin" \
     gi="cd $HOME/.config" \
     gR="cd $HOME/SSD/College/PhD/ref" \
-    gp="cd $HOME/SSD/College/PhD/" \
     gP="cd $HOME/external" \
     gm="cd $HOME/SSD/College/M.Sc" \
     gc="cd $HOME/SSD/CRASTE/" \
@@ -34,14 +32,13 @@ alias vim="nvim" \
     gk="cd $HOME/external/piano" \
     gt="cd $HOME/external/torrents/" \
     gd="cd $HOME/Downloads" \
-    gl="cd $HOME/SSD/PoleDigital/projects/IAGeoSAgri/" \
+    gl="cd $HOME/PoleDigital" \
     efa="nvim $HOME/.config/aliasrc" \
     eft="nvim $HOME/.config/tmux/tmux.conf" \
     efz="nvim $HOME/.zshrc" \
     efb="nvim $HOME/.config/bookmarks" \
     efr="nvim $HOME/.config/remind/reminders.rem" \
     TR="tremc" \
-    tf="source $HOME/.venv/p11/bin/activate" \
     list="nmcli device wifi list" \
     con="nmcli device wifi connect -ask" \
     P="aplaymidi -p 24" \
@@ -50,6 +47,7 @@ alias vim="nvim" \
     tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode' \
     mpv='mpv --pulse-latency-hacks' \
     xclip='xclip -selection clipboard' \
+    j='journalctl -xe' \
 
     command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
@@ -57,5 +55,7 @@ cw() { feh --bg-fill --randomize -r $HOME/Pictures/Wallpapers ;}
 ss() { du -a ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 gr() { cd $(ls -d $HOME/github/*/ | fzf) ;}
-# sc() { cd $(ls -d /home/mouad/.config/*/ | fzf) ;}
+gp() { cd $(ls -d $HOME/PoleDigital/projects/* | fzf) ;}
+ge() { cd $(ls -d $HOME/PoleDigital/events/* | fzf) ;}
+tf() { source $(ls $HOME/.venv/*/bin/activate | fzf);}
 efn() { cd $HOME/.config/nvim && nvim  ;}
