@@ -1,12 +1,30 @@
 #!/usr/bin/zsh
+source /home/mouad/.config/env
 
-radio="$(echo -e 'classic\ncafe\neverything\ncyberia\nswing' | dmenu -i -l 5 -p "Choose a radio")"
+radio=$(echo -e 'private\nclassic' | dmenu -i -l 2 -p "Choose a radio")
+
 url="https://live.musopen.org:8085/streamvbr0"
-if [[ $radio != 'classic' ]]; then
-	url="http://lainon.life:8000/$radio.mp3"
+
+if [[ $radio == 'private' ]]; then
+	url="https://music.mouadalami.xyz"
+
+	if [[ -z $SERVERUSER || -z $SERVERPASS ]]; then
+		notify-send "Missing SERVERUSER or SERVERPASS env variables"
+		exit 1
+	fi
+
+	if ! curl -u "${SERVERUSER}:${SERVERPASS}" --silent --head "$url" | grep -q "200 OK"; then
+		notify-send "Login failed or stream unavailable"
+		exit 1
+	fi
+
+	auth_header=$(echo -n "${SERVERUSER}:${SERVERPASS}" | base64)
+	echo "$radio"
+	pkill -f "$url" || st -e mpv --http-header-fields="Authorization: Basic $auth_header" "$url"
+	exit 0
 fi
 
-if [[ $radio != '' ]]; then
+if [[ $radio == 'classic' ]]; then
 	echo "$radio"
-	pkill -f $url || st -e mpv "$url"
+	pkill -f "$url" || st -e mpv "$url"
 fi
