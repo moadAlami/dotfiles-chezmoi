@@ -29,7 +29,7 @@ alias vim="nvim" \
     gm="cd $HOME/SSD/College/M.Sc" \
     gc="cd $HOME/SSD/CRASTE/" \
     gh="cd $HOME/" \
-    gk="cd $HOME/external/piano" \
+    gk="cd $HOME/external/pdf" \
     gt="cd $HOME/external/torrents/" \
     gd="cd $HOME/Downloads" \
     gl="cd $HOME/PoleDigital" \
@@ -54,10 +54,8 @@ alias vim="nvim" \
 
 cw() { feh --bg-fill --randomize -r $HOME/Pictures/Wallpapers ;}
 ss() { du -a ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
-vf() { fzf | xargs -r -I % $EDITOR % ;}
 gr() { cd $(ls -d $HOME/github/*/ | fzf) ;}
 gp() { cd $(ls -d $HOME/PoleDigital/projects/* | fzf) ;}
 ge() { cd $(ls -d $HOME/PoleDigital/events/* | fzf) ;}
 tf() { source $(ls $HOME/.venv/*/bin/activate | fzf);}
 efn() { cd $HOME/.config/nvim && nvim  ;}
-tf() { source $(ls $HOME/.venv/*/bin/activate | fzf) }
