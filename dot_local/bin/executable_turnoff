@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+[ $(echo -e 'Yes\nNo' | dmenu -i -p 'Are you sure you want to shutdown?') == 'Yes' ] && while pgrep mbsync > /dev/null 2>&1;do
+notify-send '⏳ Waiting for mbsync to finish.'
+sleep 5
+done
+
+notify-send '🛑 Shutting down' && shutdown now
+
+# TODO
+# Add cancellation option with shutdown --show and -c (cancel)
