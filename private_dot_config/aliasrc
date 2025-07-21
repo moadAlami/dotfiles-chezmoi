@@ -22,6 +22,7 @@ alias vim="nvim" \
     PR="sudo pacman -Rnu" \
     cpu="ps axch -o cmd:15,%cpu --sort=-%cpu | head" \
     mem="ps axch -o cmd:15,%mem --sort=-%mem | head" \
+    gh="cd $HOME/" \
     gs="cd $HOME/.local/bin" \
     gi="cd $HOME/.config" \
     gR="cd $HOME/SSD/College/PhD/ref" \
