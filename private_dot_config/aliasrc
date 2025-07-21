@@ -29,7 +29,8 @@ alias vim="nvim" \
     gP="cd $HOME/external" \
     gm="cd $HOME/SSD/College/M.Sc" \
     gc="cd $HOME/SSD/CRASTE/" \
-    gk="cd $HOME/external/piano" \
+    gh="cd $HOME/" \
+    gk="cd $HOME/external/pdf" \
     gt="cd $HOME/external/torrents/" \
     gd="cd $HOME/Downloads" \
     gl="cd $HOME/PoleDigital" \
@@ -47,13 +48,13 @@ alias vim="nvim" \
     tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode' \
     mpv='mpv --pulse-latency-hacks' \
     xclip='xclip -selection clipboard' \
+    playmidi='fluidsynth -a pulseaudio' \
     j='journalctl -xe' \
 
-    command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
+    command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 cw() { feh --bg-fill --randomize -r $HOME/Pictures/Wallpapers ;}
 ss() { du -a ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
-vf() { fzf | xargs -r -I % $EDITOR % ;}
 gr() { cd $(ls -d $HOME/github/*/ | fzf) ;}
 gp() { cd $(ls -d $HOME/PoleDigital/projects/* | fzf) ;}
 ge() { cd $(ls -d $HOME/PoleDigital/events/* | fzf) ;}

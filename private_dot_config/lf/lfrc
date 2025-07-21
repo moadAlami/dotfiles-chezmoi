@@ -139,4 +139,4 @@ map gP cd ~/external
 map gr cd ~/github
 map g/ cd /
 map g? cd ~/.config/lf/
-map gk cd ~/external/piano
+map gk cd ~/external/pdf
