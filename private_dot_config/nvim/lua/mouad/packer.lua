@@ -1,5 +1,4 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -70,4 +69,8 @@ return require('packer').startup(function(use)
 			run = ':TSUpdate'
 		},
 	}
+
+	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+	use { 'mfussenegger/nvim-dap-python' }
+
 end)
