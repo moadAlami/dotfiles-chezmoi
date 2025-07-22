@@ -3,8 +3,38 @@
 	"position": "top",
 	"modules-left": ["hyprland/workspaces", "hyprland/window"],
 	"modules-center": [],
-	"modules-right": ["clock"],
-	"sway/window": {
-		"max-length": 50
+	"modules-right": [
+		"mpd",
+		"cpu",
+		"clock",
+		"tray"
+	],
+	"hyprland/window": {
+		"format": "{title}",
+		"rewrite": {
+			"(.*) — Mozilla Firefox": "$1",
+		},
+		"separate-outputs": true,
+		"max-length": 50,
+		"tooltip": false,
+		"icon": true,
+		"icon-size": 13
 	},
+	"cpu": {
+		"interval": 1,
+		"format": "CPU  {icon}",
+		"format-icons": [
+			"<span color='#69ff94'>▁</span>", // green
+			"<span color='#2aa9ff'>▂</span>", // blue
+			"<span color='#f8f8f2'>▃</span>", // white
+			"<span color='#f8f8f2'>▄</span>", // white
+			"<span color='#ffffa5'>▅</span>", // yellow
+			"<span color='#ffffa5'>▆</span>", // yellow
+			"<span color='#ff9977'>▇</span>", // orange
+			"<span color='#dd532e'>█</span>"  // red
+		],
+		"on-click": "st btop"
+	}
+}
+
 }
