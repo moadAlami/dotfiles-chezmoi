@@ -1,0 +1,10 @@
+{
+	"layer": "top",
+	"position": "top",
+	"modules-left": ["hyprland/workspaces", "hyprland/window"],
+	"modules-center": [],
+	"modules-right": ["clock"],
+	"sway/window": {
+		"max-length": 50
+	},
+}
