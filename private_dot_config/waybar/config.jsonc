@@ -5,6 +5,8 @@
 	"modules-center": [],
 	"modules-right": [
 		"mpd",
+		"memory",
+		"pulseaudio",
 		"cpu",
 		"clock",
 		"tray"
@@ -22,7 +24,7 @@
 	},
 	"cpu": {
 		"interval": 1,
-		"format": "CPU  {icon}",
+		"format": "{icon}",
 		"format-icons": [
 			"<span color='#69ff94'>▁</span>", // green
 			"<span color='#2aa9ff'>▂</span>", // blue
@@ -34,6 +36,37 @@
 			"<span color='#dd532e'>█</span>"  // red
 		],
 		"on-click": "st btop"
+	},
+	"clock": {
+		"format": "{:%a, %b %d, %Y - %R}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode"          : "month",
+			"mode-mon-col"  : 3,
+			"weeks-pos"     : "right",
+			"on-scroll"     : 1,
+			"format": {
+				"months":     "<span color='#ffead3'><b>{}</b></span>",
+				"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+				"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions":  {
+			"on-click-right": "mode",
+		}
+	},
+	"pulseaudio": {
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "{volume}% {icon}",
+		"on-click": "pavucontrol",
+		"ignored-sinks": ["Easy Effects Sink"]
+	},
+	"memory": {
+		"interval": 30,
+		"format": "{}% ",
+		"max-length": 10
 	}
 }
 
