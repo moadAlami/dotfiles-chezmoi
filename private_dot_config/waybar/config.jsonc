@@ -60,7 +60,9 @@
 	"pulseaudio": {
 		"format": "{volume}% {icon}",
 		"format-bluetooth": "{volume}% {icon}",
-		"on-click": "pavucontrol",
+		"format-muted": "",
+		"on-click": "pamixer -t",
+		"on-click-right": "pavucontrol",
 		"ignored-sinks": ["Easy Effects Sink"]
 	},
 	"memory": {
