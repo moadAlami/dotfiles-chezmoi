@@ -1,7 +1,8 @@
 #!/bin/bash
 
 MAILDIR="$1"
-QUARANTINE="/home/mouad/quarantine"
+QUARANTINE="/tmp/quarantine"
+mkdir $QUARANTINE
 MAX_UID=123
 
 if [[ -z "$MAILDIR" ]]; then
