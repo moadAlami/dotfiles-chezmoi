@@ -40,6 +40,7 @@ alias vim="nvim" \
     efb="nvim $HOME/.config/bookmarks" \
     efr="nvim $HOME/.config/remind/reminders.rem" \
     efh="nvim $HOME/.config/hypr/hyprland.conf" \
+    efw="nvim $HOME/.config/waybar/config.jsonc" \
     TR="tremc" \
     list="nmcli device wifi list" \
     con="nmcli device wifi connect -ask" \
