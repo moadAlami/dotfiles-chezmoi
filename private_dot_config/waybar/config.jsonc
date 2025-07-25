@@ -4,11 +4,18 @@
 	"modules-left": ["hyprland/workspaces", "hyprland/window"],
 	"modules-center": [],
 	"modules-right": [
+		"upower",
+		"temperature",
+		"systemd-failed-units",
+		"network",
 		"mpd",
+		"disk",
 		"memory",
 		"pulseaudio",
 		"cpu",
 		"clock",
+		// "keyboard-state",
+		"hyprland/language",
 		"tray"
 	],
 	"hyprland/window": {
@@ -69,7 +76,19 @@
 		"interval": 30,
 		"format": "{}% ",
 		"max-length": 10
-	}
-}
-
+	},
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "🇬🇧",
+		"format-fr": "🇫🇷",
+	},
+	"systemd-failed-units": {
+		"hide-on-ok": true,
+		"format": "✗ {nr_failed}",
+		"system": true, // Monitor failed systemwide units.
+		"user": false // Ignore failed user units.
+	},
+	"temperature": {
+		"hwmon-path": "/sys/devices/virtual/thermal/thermal_zone10/hwmon3/temp1_input"
+	},
 }
