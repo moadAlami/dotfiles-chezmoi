@@ -1,9 +1,0 @@
-[pyprland]
-plugins = ["scratchpads"]
-
-[scratchpads.term]
-animation = "fromTop"
-command = "tmux list-session | grep scratch && st -t scratchpad tmux attach -t scratch || st -t scratchpad tmux new -s scratch"
-class = "scratchpad"
-size = "75% 60%"
-max_size = "1920px 100%"
