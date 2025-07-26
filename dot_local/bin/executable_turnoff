@@ -1,6 +1,12 @@
 #!/usr/bin/env sh
 
-[ $(echo -e 'Yes\nNo' | dmenu -i -p 'Are you sure you want to shutdown?') == 'Yes' ] && while pgrep mbsync > /dev/null 2>&1;do
+if [[ -n $WAYLAND_DISPLAY ]]; then
+	menu="rofi -dmenu"
+elif [[ -n $DISPLAY ]]; then
+	menu="dmenu"
+fi
+
+[ $(echo -e 'Yes\nNo' | $menu -i -p 'Are you sure you want to shutdown?') == 'Yes' ] && while pgrep mbsync > /dev/null 2>&1;do
 notify-send '⏳ Waiting for mbsync to finish.'
 sleep 5
 done
