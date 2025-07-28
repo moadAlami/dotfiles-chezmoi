@@ -5,11 +5,11 @@
 	"modules-center": ["mpd"],
 	"modules-right": [
 		"network",
+		"battery",
 		"memory",
 		"pulseaudio",
 		"cpu",
 		"clock",
-		// "keyboard-state",
 		"hyprland/language",
 		"tray"
 	],
@@ -17,6 +17,7 @@
 		"format": "{title}",
 		"rewrite": {
 			"(.*) — Mozilla Firefox": "$1",
+			"(.*) — LibreOffice (.*)": "$1",
 		},
 		"separate-outputs": true,
 		"max-length": 50,
@@ -64,8 +65,10 @@
 		"format-bluetooth": "{icon} {volume}% ",
 		"scroll-step": 5,
 		"format-muted": "🔇 {volume}%",
+		// "format-muted": " {volume}%",
 		"format-icons" : {
 			"default": ["🔈", "🔉", "🔊"]
+			// "default": ["", ""]
 		},
 		"on-click": "pamixer -t",
 		"on-click-right": "pavucontrol",
@@ -73,7 +76,7 @@
 	},
 	"memory": {
 		"interval": 30,
-		"format": "  {}%",
+		"format": " {}%  ",
 		"max-length": 10
 	},
 	"hyprland/language": {
@@ -117,5 +120,16 @@
 		},
 		"tooltip-format": "MPD (connected)",
 		"tooltip-format-disconnected": "MPD (disconnected)"
+	},
+	"battery": {
+		// "bat": "BAT2",
+		"interval": 60,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon} ",
+		"format-icons": ["", "", "", "", ""],
+		"max-length": 25
 	}
 }
