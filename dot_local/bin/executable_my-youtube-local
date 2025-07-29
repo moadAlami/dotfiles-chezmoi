@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-python $HOME/github/youtube-local/server.py &
+python $HOME/github/youtube-local/server.py || youtube-local &
 echo $! > $HOME/.cache/yt-local.pid
 librewolf --new-window localhost:3692
 kill -9 "$(cat $HOME/.cache/yt-local.pid)"
