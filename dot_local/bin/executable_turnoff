@@ -8,7 +8,7 @@ fi
 
 [ $(echo -e 'Yes\nNo' | $menu -i -p 'Are you sure you want to shutdown?') == 'Yes' ] && while pgrep mbsync > /dev/null 2>&1;do
 notify-send '⏳ Waiting for mbsync to finish.'
-sleep 5
+sleep 1
 done
 
 notify-send '🛑 Shutting down' && shutdown now
