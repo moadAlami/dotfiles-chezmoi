@@ -56,11 +56,19 @@ set -e
 test -n "$alldrives"
 
 # Feed all found drives to dmenu and get user choice.
-chosen="$(echo "$alldrives" | dmenu -p "Mount which drive?" -i)"
+if [[ -n $WAYLAND_DISPLAY ]]; then
+	chosen="$(echo "$alldrives" | rofi -dmenu -p "Mount which drive?" -i)"
+elif [[ -n $DISPLAY ]]; then
+	chosen="$(echo "$alldrives" | dmenu -p "Mount which drive?" -i)"
+fi
 
 # Function for prompting user for a mountpoint.
 getmount(){
-	mp="$(find /home/mouad/mountpoints/mp* -maxdepth 1 -type d 2>/dev/null | dmenu -i -p "Mount this drive where?")"
+	if [[ -n $WAYLAND_DISPLAY ]]; then
+		mp="$(find /home/mouad/mountpoints/mp* -maxdepth 1 -type d 2>/dev/null | rofi -dmenu -i -p "Mount this drive where?")"
+	elif [[ -n $DISPLAY ]]; then
+		mp="$(find /home/mouad/mountpoints/mp* -maxdepth 1 -type d 2>/dev/null | dmenu -i -p "Mount this drive where?")"
+	fi
 	test -n "$mp"
 	if [ ! -d "$mp" ]; then
 		mkdiryn=$(printf "No\\nYes" | dmenu -i -p "$mp does not exist. Create it?")
