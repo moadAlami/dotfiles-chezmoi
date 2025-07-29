@@ -1,12 +1,17 @@
 #!/usr/bin/zsh
 source /home/mouad/.config/env
 
-radio=$(echo -e 'private\nclassic' | dmenu -i -l 2 -p "Choose a radio")
+if [[ -n $WAYLAND_DISPLAY ]]; then
+	radio=$(echo -e 'private\nclassic' | rofi -dmenu -i -l 2 -p "Choose a radio")
+elif [[ -n $DISPLAY ]]; then
+	radio=$(echo -e 'private\nclassic' | dmenu -i -l 2 -p "Choose a radio")
+fi
+
 
 url="https://live.musopen.org:8085/streamvbr0"
 
 if [[ $radio == 'private' ]]; then
-	url="https://music.mouadalami.xyz"
+	url="https://radio.mouadalami.xyz"
 
 	if [[ -z $SERVERUSER || -z $SERVERPASS ]]; then
 		notify-send "Missing SERVERUSER or SERVERPASS env variables"
