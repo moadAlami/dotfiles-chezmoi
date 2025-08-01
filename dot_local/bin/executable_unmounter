@@ -5,6 +5,14 @@
 
 set -e
 
+# Feed all found drives to dmenu and get user choice.
+if [[ -n $WAYLAND_DISPLAY ]]; then
+	menu="rofi"
+	rofiargs="-dmenu"
+elif [[ -n $DISPLAY ]]; then
+	menu="dmenu"
+fi
+
 mounteddroids="$(grep simple-mtpfs /etc/mtab | awk '{print "📱" $2}')"
 lsblkoutput="$(lsblk -nrpo "name,type,size,mountpoint")"
 mounteddrives="$(echo "$lsblkoutput" | awk '($2=="part"||$2="crypt")&&$4!~/\/boot|\/home$|SWAP/&&length($4)>1{printf "💾%s (%s)\n",$4,$3}')"
@@ -13,7 +21,7 @@ allunmountable="$(echo "$mounteddroids
 $mounteddrives" | sed "/^$/d;s/ *$//")"
 test -n "$allunmountable"
 
-chosen="$(echo "$allunmountable" | dmenu -i -p "Unmount which drive?")"
+chosen="$(echo "$allunmountable" | $menu $rofiargs -i -p "Unmount which drive?")"
 chosen="${chosen%% *}"
 test -n "$chosen"
 

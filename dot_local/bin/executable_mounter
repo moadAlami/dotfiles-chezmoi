@@ -11,6 +11,15 @@ IFS='
 # Function for escaping cell-phone names.
 escape(){ echo "$@" | iconv -cf UTF-8 -t ASCII//TRANSLIT | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed "s/-\+/-/g;s/\(^-\|-\$\)//g" ;}
 
+
+# Feed all found drives to dmenu and get user choice.
+if [[ -n $WAYLAND_DISPLAY ]]; then
+	menu="rofi"
+	rofiargs="-dmenu"
+elif [[ -n $DISPLAY ]]; then
+	menu="dmenu"
+fi
+
 # Check for phones.
 phones="$(simple-mtpfs -l 2>/dev/null | sed "s/^/📱/")"
 mountedphones="$(grep "simple-mtpfs" /etc/mtab)"
@@ -56,22 +65,14 @@ set -e
 test -n "$alldrives"
 
 # Feed all found drives to dmenu and get user choice.
-if [[ -n $WAYLAND_DISPLAY ]]; then
-	chosen="$(echo "$alldrives" | rofi -dmenu -p "Mount which drive?" -i)"
-elif [[ -n $DISPLAY ]]; then
-	chosen="$(echo "$alldrives" | dmenu -p "Mount which drive?" -i)"
-fi
+chosen="$(echo "$alldrives" | $menu $rofiargs -p "Mount which drive?" -i)"
 
 # Function for prompting user for a mountpoint.
 getmount(){
-	if [[ -n $WAYLAND_DISPLAY ]]; then
-		mp="$(find /home/mouad/mountpoints/mp* -maxdepth 1 -type d 2>/dev/null | rofi -dmenu -i -p "Mount this drive where?")"
-	elif [[ -n $DISPLAY ]]; then
-		mp="$(find /home/mouad/mountpoints/mp* -maxdepth 1 -type d 2>/dev/null | dmenu -i -p "Mount this drive where?")"
-	fi
+	mp="$(find /home/mouad/mountpoints/mp* -maxdepth 1 -type d 2>/dev/null | $menu $rofiargs -i -p "Mount this drive where?")"
 	test -n "$mp"
 	if [ ! -d "$mp" ]; then
-		mkdiryn=$(printf "No\\nYes" | dmenu -i -p "$mp does not exist. Create it?")
+		mkdiryn=$(printf "No\\nYes" | $menu $rofiargs -i -p "$mp does not exist. Create it?")
 		[ "$mkdiryn" = "Yes" ] && (mkdir -p "$mp" || sudo -A mkdir -p "$mp")
 	fi
 }
