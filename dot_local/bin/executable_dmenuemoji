@@ -7,7 +7,11 @@
 # Must have xclip installed to even show menu.
 xclip -h >/dev/null || exit
 
-chosen=$(grep -v "#" ~/.config/emoji | dmenu -i -l 20)
+if [[ -n $WAYLAND_DISPLAY ]]; then
+	chosen=$(grep -v "#" ~/.config/emoji | rofi -dmenu -i -l 20)
+elif [[ -n $DISPLAY ]]; then
+	chosen=$(grep -v "#" ~/.config/emoji | dmenu -i -l 20)
+fi
 
 [ "$chosen" != "" ] || exit
 
