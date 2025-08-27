@@ -98,13 +98,6 @@ ex=🎯:\
 "
 export GEOSERVER_HOME=/opt/geoserver/2.23.1
 
-# if [ -z "$(uwsm check may-start)" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-# 	exec hyprland
-# fi
-
-# if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-# 	exec startx
-# else if [ -z "$(uwsm check may-start)" ] && [ "${XDG_VTNR}" -eq 2 ]; then
-# 	exec hyprland
-# fi
-# fi
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  exec startx
+fi
