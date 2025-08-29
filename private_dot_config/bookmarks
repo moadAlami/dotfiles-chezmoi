@@ -47,3 +47,10 @@ http://localhost:8384/ # syncthing
 
 # ssh
 65.20.103.176 # ssh observatoire
+
+172.16.26.60 # ssh Dashboard DB
+172.16.26.61 # ssh Dashboard Map Server
+172.16.26.62 # ssh Observatoire DB
+172.16.26.63 # ssh Observatoire Map Server
+172.16.26.64 # ssh Chatbot
+172.16.26.65 # ssh Backend
