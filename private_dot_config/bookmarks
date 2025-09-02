@@ -30,6 +30,13 @@ https://mouadalami.xyz # My personal website
 http://65.20.103.176:3838/os/ # observatoire
 https://naas.isalman.dev/no # no-as-a-service
 
+172.16.26.60 # ssh Dashboard DB
+172.16.26.61 # ssh Dashboard Map Server
+172.16.26.62 # ssh Observatoire DB
+172.16.26.63 # ssh Observatoire Map Server
+172.16.26.64 # ssh Chatbot
+172.16.26.65 # ssh Backend
+
 0796028
 
 # emails
@@ -47,10 +54,3 @@ http://localhost:8384/ # syncthing
 
 # ssh
 65.20.103.176 # ssh observatoire
-
-172.16.26.60 # ssh Dashboard DB
-172.16.26.61 # ssh Dashboard Map Server
-172.16.26.62 # ssh Observatoire DB
-172.16.26.63 # ssh Observatoire Map Server
-172.16.26.64 # ssh Chatbot
-172.16.26.65 # ssh Backend

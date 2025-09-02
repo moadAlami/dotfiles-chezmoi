@@ -98,6 +98,6 @@ ex=🎯:\
 "
 export GEOSERVER_HOME=/opt/geoserver/2.23.1
 
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-	exec startx
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  exec startx
 fi

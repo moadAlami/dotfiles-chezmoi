@@ -6,16 +6,17 @@ remapd &
 dunst &
 mpd &
 picom --corner-radius=20 --daemon
+nm-applet &
 dwmblocks &
 clipmenud &
-nm-applet &
 
 if [[ $HOST != "DESKTOP" ]];then
 	sudo mount UUID=9E1839F91839D14F /home/mouad/external -o rw,dmask=022,fmask=133,uid=1000,gid=998
-	transmission-daemon &
+	# transmission-daemon &
 	sudo mount UUID=CA1F-9F02 /home/mouad/SSD -o rw,dmask=022,fmask=133,uid=1000,gid=998
 fi
 
 xset dpms 0 0 0
 xset s off -dpms
 mailsync &
+st -t main tmux new -s main &
