@@ -1,10 +1,10 @@
 #!/usr/bin/sh
 
 case $BLOCK_BUTTON in
-	1) amixer -q sset 'Master' toggle ;;
+	1) pamixer -t ;;
 	3) setsid -f pavucontrol ;;
-	4) amixer -q sset 'Master'  5%+ ;;
-	5) amixer -q sset 'Master'  5%- ;;
+	4) pamixer -i 5 ;;
+	5) pamixer -d 5 ;;
 esac
 
 sp0=🔈
