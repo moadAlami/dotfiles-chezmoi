@@ -37,6 +37,8 @@ https://naas.isalman.dev/no # no-as-a-service
 172.16.26.64 # ssh Chatbot
 172.16.26.65 # ssh Backend
 
+https://212.217.47.2:10443/ # vpn link
+
 0796028
 
 # emails
