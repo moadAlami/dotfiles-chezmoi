@@ -27,11 +27,11 @@ function battery {
 		fi
 
 		if [[ $bCase == 1 ]];then 
-			printf "Low battery"
+			printf "🪫"
 		elif [[ $bCase == 2 ]];then
 			printf "$bat $perc%%"
 		elif [[ $bCase == 3 ]];then
-			printf "Battery full"
+			printf "🔋🔌🚫"
 		else 
 			printf "$bat $perc%%"
 		fi
