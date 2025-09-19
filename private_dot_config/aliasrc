@@ -4,9 +4,7 @@ alias vim="nvim" \
     bat="bat -n" \
     elinks="elinks -config-dir $HOME/.config/elinks" \
     lf="lfub" \
-    ran="ranger" \
     py="python3" \
-    mixer="ncpamixer" \
     mutt="neomutt" \
     ls="ls -hN --color=auto --group-directories-first" \
     ll="ls -lhN --color=auto --group-directories-first" \
@@ -15,17 +13,12 @@ alias vim="nvim" \
     yt="yt-dlp --add-metadata -i -o '%(title)s.%(ext)s'" \
     yta="yt -x -f bestaudio/best --audio-format opus --audio-quality 0" \
     YT="ytfzf -t" \
-    upc="sudo pacman -Syu" \
     s="sudo systemctl" \
     PS="sudo pacman -S" \
     PQ="sudo pacman -Q" \
     PR="sudo pacman -Rnu" \
-    cpu="ps axch -o cmd:15,%cpu --sort=-%cpu | head" \
-    mem="ps axch -o cmd:15,%mem --sort=-%mem | head" \
-    gh="cd $HOME/" \
     gs="cd $HOME/.local/bin" \
     gi="cd $HOME/.config" \
-    gR="cd $HOME/SSD/College/PhD/ref" \
     gP="cd $HOME/external" \
     gm="cd $HOME/SSD/College/M.Sc" \
     gc="cd $HOME/SSD/CRASTE/" \
@@ -41,12 +34,9 @@ alias vim="nvim" \
     efr="nvim $HOME/.config/remind/reminders.rem" \
     efh="nvim $HOME/.config/hypr/hyprland.conf" \
     efw="nvim $HOME/.config/waybar/config.jsonc" \
-    TR="tremc" \
-    list="nmcli device wifi list" \
     con="nmcli device wifi connect -ask" \
     P="aplaymidi -p 24" \
     REC="arecordmidi -p 24" \
-    ot="opustags -ei " \
     tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode' \
     mpv='mpv --pulse-latency-hacks' \
     xclip='xclip -selection clipboard' \
@@ -56,7 +46,7 @@ alias vim="nvim" \
     command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 cw() { feh --bg-fill --randomize -r $HOME/Pictures/Wallpapers ;}
-ss() { du -a ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+efs() { du -a ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 gr() { cd $(ls -d $HOME/github/*/ | fzf) ;}
 gp() { cd $(ls -d $HOME/PoleDigital/projects/* | fzf) ;}
 ge() { cd $(ls -d $HOME/PoleDigital/events/* | fzf) ;}
