@@ -12,8 +12,10 @@ clipmenud &
 
 if [[ $HOST != "DESKTOP" ]];then
 	sudo mount UUID=9E1839F91839D14F /home/mouad/external -o rw,dmask=022,fmask=133,uid=1000,gid=998
-	# transmission-daemon &
+	transmission-daemon &
 	sudo mount UUID=CA1F-9F02 /home/mouad/SSD -o rw,dmask=022,fmask=133,uid=1000,gid=998
+elif [[ $HOST != "poledigital" ]];then
+	slack &
 fi
 
 xset dpms 0 0 0
